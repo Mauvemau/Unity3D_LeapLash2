@@ -7,6 +7,8 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
     [SerializeField]
     private ObjectPool[] poolManager;
 
+    private GameObject root;
+
     // Destroy
 
     /// <summary>
@@ -152,8 +154,19 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
 
     // --
 
+    /// <summary>
+    /// Gets the root object, mainly for organizing pooled objects.
+    /// </summary>
+    /// <returns></returns>
+    public GameObject GetRoot()
+    {
+        return root;
+    }
+
     protected override void SingletonAwakened()
     {
+        root = new GameObject("Pooled Objects");
+
         for (int i = 0; i < poolManager.Length; i++)
         {
             poolManager[i].Initialize();

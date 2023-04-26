@@ -17,6 +17,8 @@ public class ObjectPool
     [SerializeField]
     private GameObject[] pool;
 
+    private GameObject hierarchy;
+
     /// <summary>
     /// Expands the size of a pool by 1
     /// </summary>
@@ -24,10 +26,19 @@ public class ObjectPool
     /// <returns> The expanded pool </returns>
     private GameObject[] ForceExpandRequest(GameObject[] pool)
     {
-        GameObject[] expandedPool = new GameObject[pool.Length + 1];
+        poolSize++;
+        GameObject[] expandedPool = new GameObject[poolSize];
 
+        for (int i = 0; i < pool.Length; i++)
+        {
+            expandedPool[i] = pool[i];
+        }
 
-         
+        GameObject newObj = (GameObject)GameObject.Instantiate(objectToPool);
+        newObj.SetActive(false);
+        newObj.transform.parent = hierarchy.transform;
+        expandedPool[expandedPool.Length - 1] = newObj;
+
         return expandedPool;
     }
 
@@ -66,7 +77,7 @@ public class ObjectPool
         {
             i++;
         }
-        if(expansible && i == pool.Length)
+        if(expansible && i == pool.Length - 1)
         {
             pool = ForceExpandRequest(pool);
         }
@@ -103,12 +114,16 @@ public class ObjectPool
     /// </summary>
     public void Initialize()
     {
+        hierarchy = new GameObject(name);
+        hierarchy.transform.parent = PoolManager.Instance.GetRoot().transform;
+
         pool = new GameObject[poolSize];
 
         for(int i = 0; i < poolSize; i++) 
         {
             GameObject obj = (GameObject)GameObject.Instantiate(objectToPool);
             obj.SetActive(false);
+            obj.transform.parent = hierarchy.transform;
             pool[i] = obj;
         }
     }

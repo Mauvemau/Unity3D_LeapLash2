@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -382,8 +382,8 @@ MonoBehaviour:
   poolManager:
   - name: Bullets
     objectToPool: {fileID: 8199804900286113438, guid: 814285bd197e7094ebcdafff4ccff346, type: 3}
-    poolSize: 20
-    expansible: 0
+    poolSize: 10
+    expansible: 1
     pool: []
   - name: Enemies
     objectToPool: {fileID: 0}
