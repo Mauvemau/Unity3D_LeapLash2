@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used for just testing the pool implementation, use PoolManager functions instead.
+/// </summary>
 public class PoolController : MonoBehaviourSingleton<PoolController> 
 {
     [Header("Keybinds")]
