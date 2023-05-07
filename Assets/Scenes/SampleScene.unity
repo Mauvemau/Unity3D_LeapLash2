@@ -464,6 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7.5
+  equipedWeapon: {fileID: 8437791909455433266, guid: 993696c3b973a394a9752a525468e27e, type: 3}
   movementChannel: {fileID: 11400000, guid: c7ce5ee6ff015f942945e7d12ae7ba21, type: 2}
   attackChannel: {fileID: 11400000, guid: a4028a4b47b4bd64eb7498f86f1330d0, type: 2}
 --- !u!54 &1473927731
@@ -622,9 +623,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrintTrace: 0
   poolManager:
-  - name: Bullets
-    objectToPool: {fileID: 8199804900286113438, guid: 814285bd197e7094ebcdafff4ccff346, type: 3}
-    poolSize: 20
+  - name: PlayerBullets
+    objectToPool: {fileID: 2831724832400278922, guid: 984c7ee174270c542b116f6b9c524036, type: 3}
+    poolSize: 40
     expansible: 0
     pool: []
   - name: Enemies

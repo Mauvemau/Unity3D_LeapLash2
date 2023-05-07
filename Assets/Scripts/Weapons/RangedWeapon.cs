@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedWeapon : Weapon
+public abstract class RangedWeapon : Weapon
 {
     [SerializeField]
     private int maxAmmo;
@@ -31,4 +31,6 @@ public class RangedWeapon : Weapon
     /// </summary>
     [SerializeField]
     protected bool automatic;
+
+    public override abstract void Attack(Vector3 origin, Vector3 target);
 }

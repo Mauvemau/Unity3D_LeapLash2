@@ -77,11 +77,13 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
     {
         for (int i = 0; i < poolManager.Length; i++)
         {
-            if (poolManager[i].GetName() == name)
+            if (poolManager[i].GetName().ToLower() == poolName.ToLower())
             {
                 poolManager[i].PoolReturn(objectID);
+                return;
             }
         }
+        Debug.LogWarning("No Object Pool named "+ poolName +" has been found!");
     }
 
     /// <summary>
@@ -92,11 +94,13 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
     {
         for (int i = 0; i < poolManager.Length; i++)
         {
-            if (poolManager[i].GetName().ToLower() == name.ToLower())
+            if (poolManager[i].GetName().ToLower() == poolName.ToLower())
             {
                 poolManager[i].PoolReturn();
+                return;
             }
         }
+        Debug.LogWarning("No Object Pool named " + poolName + " has been found!");
     }
 
     // Create
@@ -145,11 +149,13 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
     {
         for (int i = 0; i < poolManager.Length; i++)
         {
-            if (poolManager[i].GetName().ToLower() == name.ToLower())
+            if (poolManager[i].GetName().ToLower() == poolName.ToLower())
             {
                 poolManager[i].PoolRequest(position, rotation, scale);
+                return;
             }
         }
+        Debug.LogWarning("No Object Pool named " + poolName + " has been found!");
     }
 
     // --

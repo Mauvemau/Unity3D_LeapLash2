@@ -10,6 +10,9 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private float speed;
     private Vector3 _currentMovement;
 
+    [Header("Equipment")]
+    [SerializeField] private Weapon equipedWeapon;
+
     [Header("Event Listeners")]
     [SerializeField] private Vector3EventChannel movementChannel;
     [SerializeField] private VoidEventChannel attackChannel;
@@ -22,7 +25,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private void OnAttack()
     {
-        Debug.Log("Attacked");
+        equipedWeapon.Attack(transform.position, Vector3.zero);
     }
 
     private void FixedUpdate()

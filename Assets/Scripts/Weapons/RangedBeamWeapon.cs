@@ -10,5 +10,8 @@ public class RangedBeamWeapon : RangedWeapon
     [SerializeField]
     private float range;
 
-
+    public override void Attack(Vector3 origin, Vector3 target)
+    {
+        Debug.Log("Attacked");
+    }
 }
