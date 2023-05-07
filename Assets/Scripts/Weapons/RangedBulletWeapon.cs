@@ -16,16 +16,4 @@ public class RangedBulletWeapon : RangedWeapon
     [SerializeField]
     private float bulletSpeed;
 
-
-
-    public int GetBulletLifetime()
-    {
-        return bulletLifetime;
-    }
-
-    public float GetBulletSpeed()
-    {
-        return bulletSpeed;
-    }
-
 }

@@ -12,43 +12,23 @@ public class RangedWeapon : Weapon
     /// Amount of bullets shot at once
     /// </summary>
     [SerializeField]
-    private int bulletsPerShot;
+    protected int bulletsPerShot;
 
     /// <summary>
     /// Amount of bullets that can be shot per second
     /// </summary>
     [SerializeField]
-    private float fireRate;
+    protected float fireRate;
 
     /// <summary>
     /// Angle in which bullets are shot, can be set to simulate recoil and also shotgun spread adding more bulletsPerShot
     /// </summary>
     [SerializeField]
-    private float spreadAngle;
+    protected float spreadAngle;
 
     /// <summary>
     /// Whether the weapon shotos automatically when holding click or not
     /// </summary>
     [SerializeField]
-    private bool automatic;
-
-    public int GetBulletsPerShot()
-    {
-        return bulletsPerShot;
-    }
-
-    public float GetFireRate()
-    {
-        return fireRate;
-    }
-
-    public float GetSpreadAngle()
-    {
-        return spreadAngle;
-    }
-
-    public bool IsAutomatic()
-    {
-        return automatic;
-    }
+    protected bool automatic;
 }

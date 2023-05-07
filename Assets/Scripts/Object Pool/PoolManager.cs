@@ -92,7 +92,7 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
     {
         for (int i = 0; i < poolManager.Length; i++)
         {
-            if (poolManager[i].GetName() == name)
+            if (poolManager[i].GetName().ToLower() == name.ToLower())
             {
                 poolManager[i].PoolReturn();
             }
@@ -145,7 +145,7 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
     {
         for (int i = 0; i < poolManager.Length; i++)
         {
-            if (poolManager[i].GetName() == name)
+            if (poolManager[i].GetName().ToLower() == name.ToLower())
             {
                 poolManager[i].PoolRequest(position, rotation, scale);
             }

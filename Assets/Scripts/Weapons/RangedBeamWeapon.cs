@@ -10,8 +10,5 @@ public class RangedBeamWeapon : RangedWeapon
     [SerializeField]
     private float range;
 
-    public float GetRange()
-    {
-        return range;
-    }
+
 }
