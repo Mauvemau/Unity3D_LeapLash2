@@ -10,11 +10,24 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     protected string weaponName;
 
+    /// <summary>
+    /// Hit damage of each attack
+    /// </summary>
     [SerializeField]
     protected float damage;
 
     /// <summary>
-    /// Will attack from an origin position, towards a target position.
+    /// Amount of attacks thrown per second
+    /// </summary>
+    [SerializeField]
+    protected float attackRate;
+    /// <summary>
+    /// Complementary to attackrate; defines when you can attack next
+    /// </summary>
+    protected float nextAttack;
+
+    /// <summary>
+    /// Will launch an attack from an origin position, towards a target position
     /// </summary>
     /// <param name="origin"> The position from which the weapon is attacking </param>
     /// <param name="target"> The targetted position </param>

@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 8686056812113341288}
   - component: {fileID: 1684096583844047543}
   - component: {fileID: 4019186536768164519}
-  m_Layer: 0
+  - component: {fileID: -3849654770979379965}
+  - component: {fileID: 2627104254826898249}
+  m_Layer: 7
   m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,5 +98,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a2e9df7de60f4469dfdc73d963d699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 3
+  lifeTime: 0.75
+  speed: 15
   shootBulletChannel: {fileID: 11400000, guid: 17cb78974fb5764489a15b8c95f4abbe, type: 2}
+  rb: {fileID: -3849654770979379965}
+--- !u!54 &-3849654770979379965
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831724832400278922}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!135 &2627104254826898249
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831724832400278922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

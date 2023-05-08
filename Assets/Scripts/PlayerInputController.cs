@@ -5,19 +5,11 @@ public class PlayerInputController : MonoBehaviour
 {
     [Header("Event Broadcasters")]
     [SerializeField] private Vector3EventChannel movementChannel;
-    [SerializeField] private VoidEventChannel attackChannel;
+    [SerializeField] private Vector2EventChannel attackChannel;
 
     private GameInputActions input;
 
-    private void OnAttack(InputAction.CallbackContext context)
-    {
-        if (attackChannel != null)
-        {
-            attackChannel.RaiseEvent();
-        }
-    }
-
-    private void Update()
+    private void OnMove()
     {
         if (movementChannel != null)
         {
@@ -29,15 +21,29 @@ public class PlayerInputController : MonoBehaviour
         }
     }
 
+    private void OnAttack()
+    {
+        if (input.Player.Attack.IsPressed())
+        {
+            Vector2 direction = input.Player.Attack.ReadValue<Vector2>();
+
+            attackChannel.RaiseEvent(direction);
+        }
+    }
+
+    private void Update()
+    {
+        OnMove();
+        OnAttack();
+    }
+
     private void OnEnable()
     {
         input.Player.Enable();
-        input.Player.Attack.performed += OnAttack;
     }
     private void OnDisable()
     {
         input.Player.Disable();
-        input.Player.Attack.performed -= OnAttack;
     }
 
     private void Awake()

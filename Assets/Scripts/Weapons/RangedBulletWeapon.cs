@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class RangedBulletWeapon : RangedWeapon
 {
-    /// <summary>
-    /// Speed in which the bullets will be shot
-    /// </summary>
-    [SerializeField]
-    private float bulletSpeed;
-
     [Header("Event Broadcasters")]
     [SerializeField] private Vector3EventChannel shootBulletChannel;
 
@@ -17,14 +11,21 @@ public class RangedBulletWeapon : RangedWeapon
     {
         if (shootBulletChannel)
         {
-            // We request the pool to activate a bullet.
-            PoolManager.Instance.CreateObject("PlayerBullets", origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
+            // Debug.Log(nextAttack +"/"+ Time.fixedTime);
+            // Allow attack respecting the attack rate
+            if (nextAttack < Time.fixedTime)
+            {
+                // We redefine when the next attack will be available
+                nextAttack = Time.fixedTime + attackRate;
 
-            // We take aim
+                // We request the pool to activate a bullet
+                PoolManager.Instance.CreateObject("PlayerBullets", origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
 
+                // We take aim
 
-            // BOOM!
-            shootBulletChannel.RaiseEvent(Vector3.zero);
+                // BOOM!
+                shootBulletChannel.RaiseEvent(target);
+            }
         }
         else
         {

@@ -46,10 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Handgun
   damage: 10
-  maxAmmo: 10
+  attackRate: 0.25
   bulletsPerShot: 1
-  fireRate: 1
   spreadAngle: 0
-  automatic: 1
-  bulletSpeed: 1
   shootBulletChannel: {fileID: 11400000, guid: 17cb78974fb5764489a15b8c95f4abbe, type: 2}

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Vector2 Channel for Events
+/// Vector3 Channel for Events
 /// </summary>
 [CreateAssetMenu(menuName = "Events/Vector3 Channel")]
 public class Vector3EventChannel : ScriptableObject

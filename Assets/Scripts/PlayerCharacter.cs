@@ -15,7 +15,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [Header("Event Listeners")]
     [SerializeField] private Vector3EventChannel movementChannel;
-    [SerializeField] private VoidEventChannel attackChannel;
+    [SerializeField] private Vector2EventChannel attackChannel;
 
     private void OnMove(Vector3 direction)
     {
@@ -23,14 +23,18 @@ public class PlayerCharacter : MonoBehaviour
         _currentMovement.z = direction.z;
     }
 
-    private void OnAttack()
+    private void OnAttack(Vector2 direction)
     {
-        equipedWeapon.Attack(transform.position, Vector3.zero);
+        if (equipedWeapon != null)
+        {
+            Vector3 attackDirection = new Vector3(direction.x, 0f, direction.y);
+            equipedWeapon.Attack(transform.position, attackDirection);
+        }
     }
 
     private void FixedUpdate()
     {
-        if (GetComponent<Rigidbody>())
+        if (rb)
         {
             transform.Translate(speed * Time.deltaTime * _currentMovement);
         }
