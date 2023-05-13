@@ -123,6 +123,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &158325968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 158325970}
+  - component: {fileID: 158325969}
+  m_Layer: 0
+  m_Name: SMG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &158325969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158325968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca27d2e2c08e3864ea7aa1d4f57d9f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: SMG
+  damage: 5
+  attackRate: 0.1
+  bulletsPerShot: 1
+  spreadAngle: 10
+  shootBulletChannel: {fileID: 11400000, guid: 17cb78974fb5764489a15b8c95f4abbe, type: 2}
+--- !u!4 &158325970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158325968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &431216178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182607341740439617, guid: 993696c3b973a394a9752a525468e27e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 9182607341740439617, guid: 993696c3b973a394a9752a525468e27e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -375,6 +425,56 @@ MonoBehaviour:
   mouseInput: 0
   mouseInputStrength: 0.5
   smoothSpeed: 0.2
+--- !u!1 &1260037544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260037546}
+  - component: {fileID: 1260037545}
+  m_Layer: 0
+  m_Name: Shotgun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1260037545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260037544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca27d2e2c08e3864ea7aa1d4f57d9f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Shotgun
+  damage: 0.5
+  attackRate: 0.75
+  bulletsPerShot: 10
+  spreadAngle: 10
+  shootBulletChannel: {fileID: 11400000, guid: 17cb78974fb5764489a15b8c95f4abbe, type: 2}
+--- !u!4 &1260037546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260037544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1339563702
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7.5
-  equipedWeapon: {fileID: 1724356403}
+  equipedWeapon: {fileID: 1260037545}
   movementChannel: {fileID: 11400000, guid: c7ce5ee6ff015f942945e7d12ae7ba21, type: 2}
   attackChannel: {fileID: 11400000, guid: a4028a4b47b4bd64eb7498f86f1330d0, type: 2}
 --- !u!54 &1473927731
@@ -649,17 +749,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementChannel: {fileID: 11400000, guid: c7ce5ee6ff015f942945e7d12ae7ba21, type: 2}
   attackChannel: {fileID: 11400000, guid: a4028a4b47b4bd64eb7498f86f1330d0, type: 2}
---- !u!114 &1724356403 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8437791909455433266, guid: 993696c3b973a394a9752a525468e27e, type: 3}
-  m_PrefabInstance: {fileID: 431216178}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca27d2e2c08e3864ea7aa1d4f57d9f56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1743085941
 GameObject:
   m_ObjectHideFlags: 0

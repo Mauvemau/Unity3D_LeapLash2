@@ -16,5 +16,19 @@ public abstract class RangedWeapon : Weapon
     [SerializeField]
     protected float spreadAngle;
 
+    protected Vector3 GetBulletDirection(Vector3 origin, Vector3 target)
+    {
+        Vector3 direction;
+        direction = target.normalized;
+    
+        if(spreadAngle != 0)
+        {
+            Quaternion rotationModifier = Quaternion.Euler(0f, Random.Range(-spreadAngle, spreadAngle), 0f);
+            direction = rotationModifier * direction;
+        }
+
+        return direction;
+    }
+
     public override abstract void Attack(Vector3 origin, Vector3 target);
 }
