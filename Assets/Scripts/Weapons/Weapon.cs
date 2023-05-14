@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    [Header("Settings")]
     /// <summary>
     /// Name of the weapon
     /// </summary>
@@ -17,7 +18,7 @@ public abstract class Weapon : MonoBehaviour
     protected float damage;
 
     /// <summary>
-    /// Amount of attacks thrown per second
+    /// Amount of attacks performed per second
     /// </summary>
     [SerializeField]
     protected float attackRate;

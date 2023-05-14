@@ -28,9 +28,8 @@ public class Bullet : MonoBehaviour
             Vector3 velocity = direction * speed;
             velocity.y = rb.velocity.y;
             rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
-
-            StartCoroutine(HandleLifeTime());
         }
+        StartCoroutine(HandleLifeTime());
 
         // For a normal bullet, once it's been shot, we unsubscribe from the event.
         if (shootBulletChannel != null)

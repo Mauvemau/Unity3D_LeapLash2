@@ -5,18 +5,18 @@ using UnityEngine;
 public abstract class RangedWeapon : Weapon
 {
     /// <summary>
-    /// Amount of bullets shot at once
+    /// Amount of projectiles shot at once
     /// </summary>
     [SerializeField]
-    protected int bulletsPerShot;
+    protected int projectilesPerShot;
 
     /// <summary>
-    /// Angle in which bullets are shot, can be set to simulate recoil and also shotgun spread adding more bulletsPerShot
+    /// Angle in which projectiles are shot, can be set to simulate recoil and also shotgun spread adding more projectilesPerShot
     /// </summary>
     [SerializeField]
     protected float spreadAngle;
 
-    protected Vector3 GetBulletDirection(Vector3 origin, Vector3 target)
+    protected Vector3 GetProjectileDirection(Vector3 origin, Vector3 target)
     {
         Vector3 direction;
         direction = target.normalized;
