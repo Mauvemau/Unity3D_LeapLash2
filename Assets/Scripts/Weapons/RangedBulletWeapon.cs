@@ -8,10 +8,15 @@ public class RangedBulletWeapon : RangedWeapon
     /// The amount of time a bullet stays active after being shot.
     /// </summary>
     [SerializeField]
-    private float bulletLifetime;
+    private float lifetime;
+    /// <summary>
+    /// The speed of the bullet.
+    /// </summary>
+    [SerializeField]
+    private float bulletSpeed;
 
     [Header("Event Broadcasters")]
-    [SerializeField] private Vector3EventChannel shootBulletChannel;
+    [SerializeField] private BulletEventChannel shootBulletChannel;
 
     public override void Attack(Vector3 origin, Vector3 target)
     {
@@ -32,8 +37,15 @@ public class RangedBulletWeapon : RangedWeapon
                     // We take aim
                     Vector3 direction = GetProjectileDirection(origin, target);
 
-                    // BOOM!
-                    shootBulletChannel.RaiseEvent(direction);
+                    // We create a bullet setting to send
+                    BulletContainer bulletSettings = ScriptableObject.CreateInstance<BulletContainer>();
+                    bulletSettings.direction = direction;
+                    bulletSettings.damage = damage;
+                    bulletSettings.lifeTime = lifetime;
+                    bulletSettings.speed = bulletSpeed;
+
+                    // We shoot
+                    shootBulletChannel.RaiseEvent(bulletSettings);
                 }
             }
         }

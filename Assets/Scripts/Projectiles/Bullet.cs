@@ -4,32 +4,31 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] protected float lifeTime;
-    [SerializeField] protected float speed;
-    protected float timeShot;
 
     [Header("Event Listeners")]
-    [SerializeField] private Vector3EventChannel shootBulletChannel;
+    [SerializeField] private BulletEventChannel shootBulletChannel;
 
     [Header("Debug")]
     [SerializeField] private Rigidbody rb;
+    private float timeShot;
 
-    IEnumerator HandleLifeTime()
+    IEnumerator HandleLifeTime(float lifeTime)
     {
         yield return new WaitForSeconds(lifeTime);
         gameObject.SetActive(false);
     }
 
-    protected virtual void OnShot(Vector3 direction)
+    protected virtual void OnShot(BulletContainer settings)
     {
         if (rb != null)
         {
-            Vector3 velocity = direction * speed;
+            Vector3 velocity = settings.direction * settings.speed;
             velocity.y = rb.velocity.y;
             rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
         }
-        StartCoroutine(HandleLifeTime());
+        // 0 = Will not destroy with time
+        if(settings.lifeTime > 0)
+            StartCoroutine(HandleLifeTime(settings.lifeTime));
 
         // For a normal bullet, once it's been shot, we unsubscribe from the event.
         if (shootBulletChannel != null)
@@ -45,8 +44,6 @@ public class Bullet : MonoBehaviour
     {
         if (!GetComponent<Rigidbody>())
             Debug.LogError($"{name}: {nameof(rb)} is null!");
-        if (speed == 0)
-            Debug.LogWarning($"{name}: Speed is set to 0!");
     }
 
     private void OnEnable()

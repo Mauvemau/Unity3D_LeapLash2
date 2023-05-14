@@ -49,5 +49,6 @@ MonoBehaviour:
   attackRate: 0.1
   projectilesPerShot: 1
   spreadAngle: 10
-  bulletLifetime: 0.75
-  shootBulletChannel: {fileID: 11400000, guid: 17cb78974fb5764489a15b8c95f4abbe, type: 2}
+  lifetime: 0.75
+  bulletSpeed: 15
+  shootBulletChannel: {fileID: 11400000, guid: 5507364f6aac937459a095fe53711178, type: 2}

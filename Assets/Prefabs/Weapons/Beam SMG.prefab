@@ -51,4 +51,4 @@ MonoBehaviour:
   spreadAngle: 10
   lifetime: 0.2
   range: 10
-  shootBeamChannel: {fileID: 11400000, guid: 17cb78974fb5764489a15b8c95f4abbe, type: 2}
+  shootBeamChannel: {fileID: 11400000, guid: 1eab43dedc0a08341b923ea8348dee9f, type: 2}

@@ -98,10 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a2e9df7de60f4469dfdc73d963d699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0.75
-  speed: 15
-  shootBulletChannel: {fileID: 11400000, guid: 17cb78974fb5764489a15b8c95f4abbe, type: 2}
+  shootBulletChannel: {fileID: 11400000, guid: 5507364f6aac937459a095fe53711178, type: 2}
   rb: {fileID: -3849654770979379965}
+  lifeTime: 0.75
 --- !u!54 &-3849654770979379965
 Rigidbody:
   m_ObjectHideFlags: 0

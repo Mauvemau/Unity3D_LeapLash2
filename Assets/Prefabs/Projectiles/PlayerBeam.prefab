@@ -144,7 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5603110ec69a243847f604f42dcbb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0.2
-  range: 10
-  shootBulletChannel: {fileID: 11400000, guid: 17cb78974fb5764489a15b8c95f4abbe, type: 2}
+  shootBulletChannel: {fileID: 11400000, guid: 1eab43dedc0a08341b923ea8348dee9f, type: 2}
   beamLine: {fileID: 793486578012482152}
