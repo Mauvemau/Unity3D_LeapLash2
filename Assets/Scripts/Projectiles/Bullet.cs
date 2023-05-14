@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private float damage;
     private float timeShot;
 
     IEnumerator HandleLifeTime(float lifeTime)
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour
     {
         if (rb != null)
         {
+            damage = settings.damage;
             Vector3 velocity = settings.direction * settings.speed;
             velocity.y = rb.velocity.y;
             rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
@@ -33,6 +35,19 @@ public class Bullet : MonoBehaviour
         // For a normal bullet, once it's been shot, we unsubscribe from the event.
         if (shootBulletChannel != null)
             shootBulletChannel.OnEventRaised -= OnShot;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("[Hit] " + gameObject.name + " > " + other.name);
+        IDamageable damageable = other.GetComponent<IDamageable>();
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(damage);
+        }
+
+        gameObject.SetActive(false);
     }
 
     private void OnValidate()

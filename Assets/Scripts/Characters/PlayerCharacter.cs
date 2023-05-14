@@ -2,14 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : Character
 {
-    private Rigidbody rb;
-
-    [Header("Movement")]
-    [SerializeField] private float speed;
-    private Vector3 _currentMovement;
-
     [Header("Equipment")]
     [SerializeField] private Weapon equipedWeapon;
 
@@ -30,27 +24,6 @@ public class PlayerCharacter : MonoBehaviour
             Vector3 attackDirection = new Vector3(direction.x, 0f, direction.y);
             equipedWeapon.Attack(transform.position, attackDirection);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        if (rb)
-        {
-            transform.Translate(speed * Time.deltaTime * _currentMovement);
-        }
-    }
-
-    private void Awake()
-    {
-        if (!GetComponent<Rigidbody>())
-            Debug.LogError($"{name}: {nameof(rb)} is null!");
-        if (speed == 0)
-            Debug.LogWarning($"{name}: Speed is set to 0!");
-    }
-
-    private void OnValidate()
-    {
-        rb ??= GetComponent<Rigidbody>();
     }
 
     private void OnEnable()
