@@ -11,6 +11,7 @@ public class Beam : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private LineRenderer beamLine;
+    [SerializeField] private float damage;
 
     IEnumerator HandleLifeTime(float lifeTime)
     {
@@ -18,16 +19,28 @@ public class Beam : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void HandleBeamHit(Collider other)
+    {
+        IDamageable damageable = other.GetComponent<IDamageable>();
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(damage);
+        }
+    }
+
     protected virtual void OnShot(BeamContainer settings)
     {
         if (beamLine != null)
         {
+            damage = settings.damage;
             beamLine.SetPosition(0, transform.position);
             RaycastHit hit;
 
             if(Physics.Raycast(transform.position, settings.direction, out hit, settings.range))
             {
                 beamLine.SetPosition(1, hit.point);
+                HandleBeamHit(hit.collider);
             }
             else
             {

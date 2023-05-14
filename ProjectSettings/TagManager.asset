@@ -13,9 +13,9 @@ TagManager:
   - UI
   - Player
   - PlayerBullets
-  - 
-  - 
-  - 
+  - Level
+  - Enemy
+  - EnemyBullets
   - 
   - 
   - 

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Beam Handgun
-  damage: 0.5
+  damage: 3
   attackRate: 0.75
   projectilesPerShot: 10
   spreadAngle: 10

@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float damage;
-    private float timeShot;
 
     IEnumerator HandleLifeTime(float lifeTime)
     {
@@ -39,7 +38,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("[Hit] " + gameObject.name + " > " + other.name);
         IDamageable damageable = other.GetComponent<IDamageable>();
 
         if (damageable != null)
