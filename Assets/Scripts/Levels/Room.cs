@@ -19,6 +19,7 @@ public class Room : MonoBehaviour
         else
         {
             Debug.Log("Initializing room...");
+            MyGameManager.Instance.TeleportPlayer(doors[Random.Range(0, doors.Count - 1)].GetOffsetPosition());
         }
     }
 

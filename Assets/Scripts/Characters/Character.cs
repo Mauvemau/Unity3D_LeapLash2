@@ -16,6 +16,11 @@ public abstract class Character : MonoBehaviour, IDamageable
     /// </summary>
     protected abstract void HandleDeathEffect();
 
+    protected bool IsDead()
+    {
+        return (healthPoints <= 0);
+    }
+
     /// <summary>
     /// Basic function performed on death
     /// </summary>

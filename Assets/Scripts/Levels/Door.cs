@@ -21,6 +21,11 @@ public class Door : MonoBehaviour
     [Header("Debug")]
     [SerializeField] Vector3 spawnOffset;
 
+    public Vector3 GetOffsetPosition()
+    {
+        return (transform.position + spawnOffset);
+    }
+
     private void Awake()
     {
         if (!GetComponent<BoxCollider>())

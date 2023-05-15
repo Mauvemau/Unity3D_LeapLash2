@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
     private void Initialize()
     {
         currentLevel = 0;
-        levels[currentLevel].Initialize();
+        //levels[currentLevel].Initialize();
     }
 
     protected override void SingletonAwakened()

@@ -20,6 +20,12 @@ public class PlayerCharacter : Character
         // Todo
     }
 
+    public void Teleport(Vector3 position)
+    {
+        Debug.Log("Teleporting to " + position);
+        transform.position = position;
+    }
+
     private void OnMove(Vector3 direction)
     {
         _currentMovement.x = direction.x;
@@ -28,7 +34,7 @@ public class PlayerCharacter : Character
 
     private void OnAttack(Vector2 direction)
     {
-        if (equippedWeapon != null)
+        if (!IsDead() && equippedWeapon != null)
         {
             Vector3 attackDirection = new Vector3(direction.x, 0f, direction.y);
             equippedWeapon.Attack(transform.position, attackDirection);
@@ -37,7 +43,7 @@ public class PlayerCharacter : Character
 
     private void FixedUpdate()
     {
-        if (rb)
+        if (!IsDead() && rb)
         {
             transform.Translate(speed * Time.deltaTime * _currentMovement);
         }

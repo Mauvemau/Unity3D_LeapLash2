@@ -79,7 +79,7 @@ public class EnemyCharacter : Character
         if (rb && movementType == MovementTypes.leaping)
             HandleLeapingMovement();
 
-        if (equippedWeapon && target.magnitude > 0)
+        if (!IsDead() && equippedWeapon && target.magnitude > 0)
             AttackTarget();
     }
 }
