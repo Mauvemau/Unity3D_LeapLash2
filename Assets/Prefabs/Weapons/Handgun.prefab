@@ -47,6 +47,7 @@ MonoBehaviour:
   weaponName: Handgun
   damage: 10
   attackRate: 0.25
+  poolToRequest: PlayerBullets
   projectilesPerShot: 1
   spreadAngle: 0
   lifetime: 0.75

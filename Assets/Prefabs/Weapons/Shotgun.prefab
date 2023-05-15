@@ -47,6 +47,7 @@ MonoBehaviour:
   weaponName: Shotgun
   damage: 3
   attackRate: 0.75
+  poolToRequest: PlayerBullets
   projectilesPerShot: 10
   spreadAngle: 10
   lifetime: 0.75

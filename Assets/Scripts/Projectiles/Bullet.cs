@@ -57,6 +57,8 @@ public class Bullet : MonoBehaviour
     {
         if (!GetComponent<Rigidbody>())
             Debug.LogError($"{name}: {nameof(rb)} is null!");
+        else
+            rb.useGravity = false;
     }
 
     private void OnEnable()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCharacter : Character
 {
     [Header("Equipment")]
-    [SerializeField] private Weapon equipedWeapon;
+    [SerializeField] private Weapon equippedWeapon;
 
     [Header("Event Listeners")]
     [SerializeField] private Vector3EventChannel movementChannel;
@@ -28,10 +28,10 @@ public class PlayerCharacter : Character
 
     private void OnAttack(Vector2 direction)
     {
-        if (equipedWeapon != null)
+        if (equippedWeapon != null)
         {
             Vector3 attackDirection = new Vector3(direction.x, 0f, direction.y);
-            equipedWeapon.Attack(transform.position, attackDirection);
+            equippedWeapon.Attack(transform.position, attackDirection);
         }
     }
 

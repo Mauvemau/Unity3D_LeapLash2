@@ -5,6 +5,11 @@ using UnityEngine;
 public abstract class RangedWeapon : Weapon
 {
     /// <summary>
+    /// In case we need it, the name of the pool we want to request our projectiles from.
+    /// </summary>
+    [SerializeField]
+    protected string poolToRequest;
+    /// <summary>
     /// Amount of projectiles shot at once
     /// </summary>
     [SerializeField]

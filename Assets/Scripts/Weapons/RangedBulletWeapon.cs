@@ -32,7 +32,7 @@ public class RangedBulletWeapon : RangedWeapon
                 for (int i = 0; i < projectilesPerShot; i++)
                 {
                     // We request the pool to activate a bullet
-                    PoolManager.Instance.CreateObject("PlayerBullets", origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
+                    PoolManager.Instance.CreateObject(poolToRequest, origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
 
                     // We take aim
                     Vector3 direction = GetProjectileDirection(origin, target);

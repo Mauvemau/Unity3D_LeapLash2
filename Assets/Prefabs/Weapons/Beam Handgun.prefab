@@ -47,6 +47,7 @@ MonoBehaviour:
   weaponName: Beam Handgun
   damage: 10
   attackRate: 0.25
+  poolToRequest: PlayerBeams
   projectilesPerShot: 1
   spreadAngle: 0
   lifetime: 0.2

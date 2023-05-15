@@ -17,6 +17,9 @@ public class EnemyCharacter : Character
     [Header("Objective")]
     [SerializeField] private Vector3 target;
 
+    [Header("Equipment")]
+    [SerializeField] private Weapon equippedWeapon;
+
     [Header("Movement")]
     [SerializeField] MovementTypes movementType;
 
@@ -33,6 +36,13 @@ public class EnemyCharacter : Character
         movementType = MovementTypes.stationary; // We don't want it to keep moving
     }
 
+    private void AttackTarget()
+    {
+        Vector3 attackDirection = target - transform.position;
+        attackDirection.y = 0;
+        equippedWeapon.Attack(transform.position, attackDirection);
+    }
+
     private int GetRandomSign()
     {
         return Random.Range(0, 2) == 0 ? -1 : 1;
@@ -40,7 +50,6 @@ public class EnemyCharacter : Character
 
     private void HandleFollowMovement()
     {
-        target = FindObjectOfType<PlayerCharacter>().gameObject.transform.position;
         Vector3 direction = target - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime);
     }
@@ -65,7 +74,12 @@ public class EnemyCharacter : Character
 
     private void Update()
     {
+        target = FindObjectOfType<PlayerCharacter>().gameObject.transform.position;
+
         if (rb && movementType == MovementTypes.leaping)
             HandleLeapingMovement();
+
+        if (equippedWeapon && target.magnitude > 0)
+            AttackTarget();
     }
 }
