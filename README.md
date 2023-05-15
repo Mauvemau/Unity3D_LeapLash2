@@ -1,3 +1,1 @@
-Todo:
-
-Decide Events/Actions.
+ToBeNamed is a WIP; 3D, top-down, twin-stick shooter, developed in Unity Engine.
