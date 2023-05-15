@@ -8,7 +8,18 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
     [SerializeField] private List<Level> levels;
     [SerializeField] private int currentLevel;
 
+    [Header("Event Broadcasters")]
+    [SerializeField] private BoolEventChannel lockDoorsChannel;
 
+    /// <summary>
+    /// Locks or Unlocks all doors
+    /// </summary>
+    /// <param name="value"></param>
+    public void SetDoorsLocked(bool value)
+    {
+        if(lockDoorsChannel)
+            lockDoorsChannel.RaiseEvent(value);
+    }
 
     /// <summary>
     /// Moves the player to the next stage/room/level.

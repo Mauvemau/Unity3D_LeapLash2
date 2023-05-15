@@ -21,6 +21,28 @@ public class Door : MonoBehaviour
     [Header("Debug")]
     [SerializeField] Vector3 spawnOffset;
 
+    [Header("Event Listeners")]
+    [SerializeField] private BoolEventChannel lockDoorsChannel;
+
+    /// <summary>
+    /// Locks the door.
+    /// </summary>
+    private void SetLocked(bool locked)
+    {
+        if (locked)
+        {
+            coll.isTrigger = false;
+        }
+        else
+        {
+            coll.isTrigger = true;
+        }
+    }
+
+    /// <summary>
+    /// Where the player is supposed to be teleported at.
+    /// </summary>
+    /// <returns></returns>
     public Vector3 GetOffsetPosition()
     {
         return (transform.position + spawnOffset);
@@ -66,5 +88,17 @@ public class Door : MonoBehaviour
                 spawnOffset = new Vector3(0f, 0f, 0f);
                 break;
         }
+    }
+
+    private void OnEnable()
+    {
+        if (lockDoorsChannel != null)
+            lockDoorsChannel.OnEventRaised += SetLocked;
+    }
+
+    private void OnDisable()
+    {
+        if (lockDoorsChannel != null)
+            lockDoorsChannel.OnEventRaised -= SetLocked;
     }
 }

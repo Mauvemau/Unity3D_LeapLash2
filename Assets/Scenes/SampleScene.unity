@@ -222,6 +222,7 @@ MonoBehaviour:
   coll: {fileID: 77711842}
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &77711842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -451,6 +452,7 @@ MonoBehaviour:
   coll: {fileID: 115870567}
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &176809780
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +503,7 @@ MonoBehaviour:
   coll: {fileID: 176809783}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &176809783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -677,6 +680,7 @@ MonoBehaviour:
   coll: {fileID: 241412036}
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &424226391
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +794,7 @@ MonoBehaviour:
   coll: {fileID: 424226393}
   doorType: 3
   spawnOffset: {x: -2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1001 &431216178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,6 +965,7 @@ MonoBehaviour:
   coll: {fileID: 441878462}
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &450312503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1177,7 @@ MonoBehaviour:
   coll: {fileID: 491313122}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &502950267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1213,7 @@ MonoBehaviour:
   - {fileID: 1975532414}
   - {fileID: 2089964698}
   currentLevel: 0
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!4 &502950269
 Transform:
   m_ObjectHideFlags: 0
@@ -1334,6 +1342,7 @@ MonoBehaviour:
   coll: {fileID: 520294528}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &546563126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,6 +1444,7 @@ MonoBehaviour:
   coll: {fileID: 648584308}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &648584308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1705,6 +1715,7 @@ MonoBehaviour:
   coll: {fileID: 715172772}
   doorType: 3
   spawnOffset: {x: -2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &765976168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,6 +1829,7 @@ MonoBehaviour:
   coll: {fileID: 765976170}
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &787148081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,6 +1880,7 @@ MonoBehaviour:
   coll: {fileID: 787148084}
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &787148084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2044,6 +2057,7 @@ MonoBehaviour:
   coll: {fileID: 841609943}
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &848570300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,6 +2171,7 @@ MonoBehaviour:
   coll: {fileID: 848570302}
   doorType: 3
   spawnOffset: {x: -2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &850578269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,6 +2285,7 @@ MonoBehaviour:
   coll: {fileID: 850578271}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &901706560
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,6 +2399,7 @@ MonoBehaviour:
   coll: {fileID: 901706562}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &954830519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,6 +2716,7 @@ MonoBehaviour:
   coll: {fileID: 1019124778}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &1050299153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,6 +2823,7 @@ MonoBehaviour:
   coll: {fileID: 1085721948}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &1085721948
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2981,6 +3000,7 @@ MonoBehaviour:
   coll: {fileID: 1106968897}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &1178684945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3114,7 @@ MonoBehaviour:
   coll: {fileID: 1178684947}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &1205829079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3144,6 +3165,7 @@ MonoBehaviour:
   coll: {fileID: 1205829082}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &1205829082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3320,6 +3342,7 @@ MonoBehaviour:
   coll: {fileID: 1341138734}
   doorType: 3
   spawnOffset: {x: -2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &1350754791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,6 +3486,7 @@ MonoBehaviour:
   coll: {fileID: 1442555430}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &1442555430
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3639,6 +3663,7 @@ MonoBehaviour:
   coll: {fileID: 1446610196}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &1466621262 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: d0837bc7b9d7edd45be60b4641a1cb1d, type: 3}
@@ -4250,6 +4275,7 @@ MonoBehaviour:
   coll: {fileID: 1697667114}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &1743085941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,6 +4540,7 @@ MonoBehaviour:
   coll: {fileID: 1765912858}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &1769361183
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,6 +4591,7 @@ MonoBehaviour:
   coll: {fileID: 1769361186}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &1769361186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4793,6 +4821,7 @@ MonoBehaviour:
   coll: {fileID: 1866334213}
   doorType: 2
   spawnOffset: {x: 0, y: 1, z: 2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &1889393513
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,6 +5006,7 @@ MonoBehaviour:
   coll: {fileID: 1975474737}
   doorType: 3
   spawnOffset: {x: -2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!65 &1975474737
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5282,6 +5312,7 @@ MonoBehaviour:
   coll: {fileID: 2047825479}
   doorType: 0
   spawnOffset: {x: 0, y: 1, z: -2}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1 &2089964696
 GameObject:
   m_ObjectHideFlags: 0
@@ -5451,6 +5482,7 @@ MonoBehaviour:
   coll: {fileID: 2127506142}
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
+  lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
 --- !u!1001 &3085308699486846634
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,15 @@ public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
     [SerializeField] private PlayerCharacter player;
 
     /// <summary>
+    /// Returns the current altitude of the player.
+    /// </summary>
+    /// <returns></returns>
+    public float getPlayerAltitude()
+    {
+        return player.transform.position.y;
+    }
+
+    /// <summary>
     /// Teleports the player to specific position.
     /// </summary>
     /// <param name="position"></param>
