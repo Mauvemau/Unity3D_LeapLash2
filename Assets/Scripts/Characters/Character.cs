@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour, IDamageable
+public abstract class Character : MonoBehaviour, IDamageable
 {
     protected Rigidbody rb;
     protected SphereCollider coll;
@@ -11,17 +11,22 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] protected float maxHealthPoints;
     protected float healthPoints;
 
-    [Header("Movement")]
-    [SerializeField] protected float speed;
-    protected Vector3 _currentMovement;
+    /// <summary>
+    /// Used in case the developer wants to add extra functionality after death, like; Death animation, de-activation, playing death sound, etc
+    /// </summary>
+    protected abstract void HandleDeathEffect();
 
+    /// <summary>
+    /// Basic function performed on death
+    /// </summary>
     private void HandleDeath()
     {
         // Corpses don't move
         rb.isKinematic = true;
         rb.detectCollisions = false;
-        // So it doesn't block bullets or the player.
+        // So it doesn't block bullets or the player
         coll.enabled = false;
+        HandleDeathEffect();
     }
 
     public void TakeDamage(float damageToTake)
@@ -39,14 +44,6 @@ public class Character : MonoBehaviour, IDamageable
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (rb)
-        {
-            transform.Translate(speed * Time.deltaTime * _currentMovement);
-        }
-    }
-
     private void Awake()
     {
         if (!GetComponent<Rigidbody>())
@@ -56,10 +53,6 @@ public class Character : MonoBehaviour, IDamageable
         if (!GetComponent<SphereCollider>())
         {
             Debug.LogError($"{name}: {nameof(coll)} is null!");
-        }
-        if (speed == 0)
-        {
-            Debug.LogWarning($"{name}: Speed is set to 0!");
         }
         if (maxHealthPoints == 0)
         {

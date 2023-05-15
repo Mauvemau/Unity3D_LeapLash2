@@ -3619,10 +3619,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
-  speed: 7.5
   equipedWeapon: {fileID: 1136105779}
   movementChannel: {fileID: 11400000, guid: c7ce5ee6ff015f942945e7d12ae7ba21, type: 2}
   attackChannel: {fileID: 11400000, guid: a4028a4b47b4bd64eb7498f86f1330d0, type: 2}
+  speed: 7.5
 --- !u!54 &1473927731
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3810,7 +3810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500975027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3830,7 +3830,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
-  speed: 0
+  target: {x: 0, y: 0, z: 0}
+  movementType: 0
+  speed: 5
+  leapImpulse: 5
+  leapInterval: 0.5
+  nextLeap: 0
 --- !u!1 &1545553602
 GameObject:
   m_ObjectHideFlags: 0

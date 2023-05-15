@@ -11,6 +11,15 @@ public class PlayerCharacter : Character
     [SerializeField] private Vector3EventChannel movementChannel;
     [SerializeField] private Vector2EventChannel attackChannel;
 
+    [Header("Movement")]
+    [SerializeField] protected float speed;
+    protected Vector3 _currentMovement;
+
+    protected override void HandleDeathEffect()
+    {
+        // Todo
+    }
+
     private void OnMove(Vector3 direction)
     {
         _currentMovement.x = direction.x;
@@ -23,6 +32,14 @@ public class PlayerCharacter : Character
         {
             Vector3 attackDirection = new Vector3(direction.x, 0f, direction.y);
             equipedWeapon.Attack(transform.position, attackDirection);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (rb)
+        {
+            transform.Translate(speed * Time.deltaTime * _currentMovement);
         }
     }
 
