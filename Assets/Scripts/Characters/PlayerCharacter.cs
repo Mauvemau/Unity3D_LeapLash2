@@ -15,11 +15,10 @@ public class PlayerCharacter : Character
     [SerializeField] protected float speed;
     protected Vector3 _currentMovement;
 
-    protected override void HandleDeathEffect()
-    {
-        // Todo
-    }
-
+    /// <summary>
+    /// Teleports towards a position.
+    /// </summary>
+    /// <param name="position"> Position to teleport towards </param>
     public void Teleport(Vector3 position)
     {
         Debug.Log("Teleporting to " + position);

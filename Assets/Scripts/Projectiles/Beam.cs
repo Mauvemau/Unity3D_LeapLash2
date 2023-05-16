@@ -13,12 +13,21 @@ public class Beam : MonoBehaviour
     [SerializeField] private LineRenderer beamLine;
     [SerializeField] private float damage;
 
+    /// <summary>
+    /// Handles the de-activation of the beam, mainly Line-Renderer related
+    /// </summary>
+    /// <param name="lifeTime"> Amount Beam will de-activate after this amount of time in seconds </param>
+    /// <returns></returns>
     IEnumerator HandleLifeTime(float lifeTime)
     {
         yield return new WaitForSeconds(lifeTime);
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Handles the collision of the beam with objects
+    /// </summary>
+    /// <param name="other"> Collider of the object the beam collided into </param>
     private void HandleBeamHit(Collider other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
@@ -29,6 +38,10 @@ public class Beam : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Handles the shooting of the beam
+    /// </summary>
+    /// <param name="settings"> Data container, containing the settings of the beam </param>
     protected virtual void OnShot(BeamContainer settings)
     {
         if (beamLine != null)

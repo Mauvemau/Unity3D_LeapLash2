@@ -15,7 +15,7 @@ public class EnemyCharacter : Character
     }
 
     [Header("Objective")]
-    [SerializeField] private Vector3 target;
+    [SerializeField] private Transform target;
 
     [Header("Equipment")]
     [SerializeField] private Weapon equippedWeapon;
@@ -36,24 +36,37 @@ public class EnemyCharacter : Character
         movementType = MovementTypes.stationary; // We don't want it to keep moving
     }
 
+    /// <summary>
+    /// Attacks towards the target with the equipped weapon.
+    /// </summary>
     private void AttackTarget()
     {
-        Vector3 attackDirection = target - transform.position;
+        Vector3 attackDirection = target.position - transform.position;
         attackDirection.y = 0;
         equippedWeapon.Attack(transform.position, attackDirection);
     }
 
+    /// <summary>
+    /// Returns either +1 or -1.
+    /// </summary>
+    /// <returns></returns>
     private int GetRandomSign()
     {
         return Random.Range(0, 2) == 0 ? -1 : 1;
     }
 
+    /// <summary>
+    /// Handles follow movement behaviour.
+    /// </summary>
     private void HandleFollowMovement()
     {
-        Vector3 direction = target - transform.position;
+        Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Handles the leap movement behaviour.
+    /// </summary>
     private void HandleLeapingMovement()
     {
         // Allow leap respecting the leap interval
@@ -74,12 +87,15 @@ public class EnemyCharacter : Character
 
     private void Update()
     {
-        target = FindObjectOfType<PlayerCharacter>().gameObject.transform.position;
-
         if (rb && movementType == MovementTypes.leaping)
             HandleLeapingMovement();
 
-        if (!IsDead() && equippedWeapon && target.magnitude > 0)
+        if (!IsDead() && equippedWeapon)
             AttackTarget();
+    }
+
+    protected override void _Awake()
+    {
+        target = MyGameManager.Instance.getPlayerTransform();
     }
 }

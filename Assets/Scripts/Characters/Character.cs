@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour, IDamageable
+public class Character : MonoBehaviour, IDamageable
 {
     protected Rigidbody rb;
     protected SphereCollider coll;
@@ -12,14 +12,18 @@ public abstract class Character : MonoBehaviour, IDamageable
     protected float healthPoints;
 
     /// <summary>
-    /// Used in case the developer wants to add extra functionality after death, like; Death animation, de-activation, playing death sound, etc
+    /// Returns if dead or not.
     /// </summary>
-    protected abstract void HandleDeathEffect();
-
+    /// <returns></returns>
     protected bool IsDead()
     {
         return (healthPoints <= 0);
     }
+
+    /// <summary>
+    /// Used in case the developer wants to add extra functionality after death, like; Death animation, de-activation, playing death sound, etc
+    /// </summary>
+    protected virtual void HandleDeathEffect() { }
 
     /// <summary>
     /// Basic function performed on death
@@ -34,6 +38,10 @@ public abstract class Character : MonoBehaviour, IDamageable
         HandleDeathEffect();
     }
 
+    /// <summary>
+    /// Override from IDamageable.
+    /// </summary>
+    /// <param name="damageToTake"></param>
     public void TakeDamage(float damageToTake)
     {
         // 0 = Infinite Health
@@ -48,6 +56,11 @@ public abstract class Character : MonoBehaviour, IDamageable
             Debug.Log($"{name} took {damageToTake} damage! [Health Points: {healthPoints}/{maxHealthPoints}]");
         }
     }
+
+    /// <summary>
+    /// For use in children classes
+    /// </summary>
+    protected virtual void _Awake() {}
 
     private void Awake()
     {
@@ -67,11 +80,18 @@ public abstract class Character : MonoBehaviour, IDamageable
         {
             healthPoints = maxHealthPoints;
         }
+        _Awake();
     }
+
+    /// <summary>
+    /// For use in children classes.
+    /// </summary>
+    protected virtual void _OnValidate() {}
 
     private void OnValidate()
     {
         rb ??= GetComponent<Rigidbody>();
         coll ??= GetComponent<SphereCollider>();
+        _OnValidate();
     }
 }

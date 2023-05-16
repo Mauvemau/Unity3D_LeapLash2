@@ -5,10 +5,11 @@ using UnityEngine;
 public abstract class RangedWeapon : Weapon
 {
     /// <summary>
-    /// In case we need it, the name of the pool we want to request our projectiles from.
+    /// In case we need it, the name of the pool we want to request our projectiles from
     /// </summary>
     [SerializeField]
     protected string poolToRequest;
+
     /// <summary>
     /// Amount of projectiles shot at once
     /// </summary>
@@ -21,7 +22,12 @@ public abstract class RangedWeapon : Weapon
     [SerializeField]
     protected float spreadAngle;
 
-    protected Vector3 GetProjectileDirection(Vector3 origin, Vector3 target)
+    /// <summary>
+    /// Alters the angle of the projectile depending on the amount of "Spread Angle" set to the weapon
+    /// </summary>
+    /// <param name="target"> Direction of the projectile </param>
+    /// <returns></returns>
+    protected Vector3 GetProjectileDirection(Vector3 target)
     {
         Vector3 direction;
         direction = target.normalized;

@@ -18,6 +18,11 @@ public class RangedBeamWeapon : RangedWeapon
     [Header("Event Broadcasters")]
     [SerializeField] private BeamEventChannel shootBeamChannel;
 
+    /// <summary>
+    /// Handles the activation of beam as well as providing them with the required data for them to be shot
+    /// </summary>
+    /// <param name="origin"> Position from where the beam starts </param>
+    /// <param name="target"> Direction where the beam is casted towards </param>
     public override void Attack(Vector3 origin, Vector3 target)
     {
         if (shootBeamChannel)
@@ -35,7 +40,7 @@ public class RangedBeamWeapon : RangedWeapon
                     PoolManager.Instance.CreateObject(poolToRequest, origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
 
                     // We take aim
-                    Vector3 direction = GetProjectileDirection(origin, target);
+                    Vector3 direction = GetProjectileDirection(target);
 
                     // We create a beam setting to send
                     BeamContainer beamSettings = ScriptableObject.CreateInstance<BeamContainer>();

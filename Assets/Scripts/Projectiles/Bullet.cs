@@ -12,12 +12,21 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float damage;
 
+    /// <summary>
+    /// De-activates the bullet after a set time
+    /// </summary>
+    /// <param name="lifeTime"> Bullet will de-activate after this amount of time in seconds </param>
+    /// <returns></returns>
     IEnumerator HandleLifeTime(float lifeTime)
     {
         yield return new WaitForSeconds(lifeTime);
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Handles the shooting of the bullet
+    /// </summary>
+    /// <param name="settings"> Data container, containing the settings of the bullet </param>
     protected virtual void OnShot(BulletContainer settings)
     {
         if (rb != null)

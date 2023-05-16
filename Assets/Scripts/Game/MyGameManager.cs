@@ -11,9 +11,9 @@ public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
     /// Returns the current altitude of the player.
     /// </summary>
     /// <returns></returns>
-    public float getPlayerAltitude()
+    public Transform getPlayerTransform()
     {
-        return player.transform.position.y;
+        return player.transform;
     }
 
     /// <summary>

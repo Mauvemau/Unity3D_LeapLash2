@@ -18,6 +18,11 @@ public class RangedBulletWeapon : RangedWeapon
     [Header("Event Broadcasters")]
     [SerializeField] private BulletEventChannel shootBulletChannel;
 
+    /// <summary>
+    /// Handles the activation of bullet as well as providing them with the required data for them to be shot
+    /// </summary>
+    /// <param name="origin"> Position to activate the bullet at </param>
+    /// <param name="target"> Direction to shoot the bullet at </param>
     public override void Attack(Vector3 origin, Vector3 target)
     {
         if (shootBulletChannel)
@@ -35,7 +40,7 @@ public class RangedBulletWeapon : RangedWeapon
                     PoolManager.Instance.CreateObject(poolToRequest, origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
 
                     // We take aim
-                    Vector3 direction = GetProjectileDirection(origin, target);
+                    Vector3 direction = GetProjectileDirection(target);
 
                     // We create a bullet setting to send
                     BulletContainer bulletSettings = ScriptableObject.CreateInstance<BulletContainer>();
