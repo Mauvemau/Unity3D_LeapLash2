@@ -1866,6 +1866,67 @@ MonoBehaviour:
   doorType: 1
   spawnOffset: {x: 2, y: 1, z: 0}
   lockDoorsChannel: {fileID: 11400000, guid: a2ca0b43633db2a4aa5fd17b79da50f1, type: 2}
+--- !u!1001 &779310656
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2976132558464792893, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_Name
+      value: WeaponDrop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792897, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 58996a09674fe4a41a145906eb0a2225, type: 2}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976132558464792898, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
 --- !u!1 &787148081
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,6 +5280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrintTrace: 0
+  weaponDropTemplate: {fileID: 2976132558464792893, guid: 9ffd87d4d2a58fe40af04eeed376ca5a, type: 3}
   nearbyLoot: []
   togglePromptChannel: {fileID: 11400000, guid: 47d3e5c77e7353e41afd5728f3c50f73, type: 2}
   setTextChannel: {fileID: 11400000, guid: 27197421f22eb114ea92d103a1312830, type: 2}

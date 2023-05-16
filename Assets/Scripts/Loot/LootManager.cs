@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LootManager : MonoBehaviourSingleton<LootManager>
 {
+    [Header("Loot Maker")]
+    [SerializeField] private GameObject weaponDropTemplate;
+
     [Header("Loot Scanner")]
     [SerializeField] private List<GameObject> nearbyLoot;
 
@@ -11,6 +14,13 @@ public class LootManager : MonoBehaviourSingleton<LootManager>
     [SerializeField] private BoolEventChannel togglePromptChannel;
     [SerializeField] private StringEventChannel setTextChannel;
     [SerializeField] private WeaponEventChannel equipWeaponChannel;
+
+    public void CreateWeaponDrop(Weapon weapon, Vector3 position)
+    {
+        GameObject obj = (GameObject)GameObject.Instantiate(weaponDropTemplate);
+        obj.transform.position = position;
+        obj.GetComponent<WeaponDrop>().SetWeapon(weapon);
+    }
 
     public void LootItem()
     {

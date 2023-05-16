@@ -30,6 +30,8 @@ public class PlayerCharacter : Character
 
     public void EquipWeapon(Weapon weapon)
     {
+        if (equippedWeapon != null)
+            LootManager.Instance.CreateWeaponDrop(weapon, transform.position);
         equippedWeapon = weapon;
     }
 

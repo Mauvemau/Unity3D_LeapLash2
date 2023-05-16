@@ -8,7 +8,16 @@ public class WeaponDrop : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private Weapon weapon;
     [SerializeField] private SphereCollider coll;
-    
+
+    public void SetWeapon(Weapon _weapon)
+    {
+        weapon = _weapon;
+    }
+
+    /// <summary>
+    /// Returns the weapon scriptableObject.
+    /// </summary>
+    /// <returns></returns>
     public Weapon getWeapon()
     {
         return weapon;
