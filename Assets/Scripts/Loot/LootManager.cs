@@ -7,6 +7,32 @@ public class LootManager : MonoBehaviourSingleton<LootManager>
     [Header("Loot Scanner")]
     [SerializeField] private List<GameObject> nearbyLoot;
 
+    [Header("Event Broadcasters")]
+    [SerializeField] private BoolEventChannel togglePromptChannel;
+    [SerializeField] private StringEventChannel setTextChannel;
+    [SerializeField] private WeaponEventChannel equipWeaponChannel;
+
+    public void LootItem()
+    {
+        if(nearbyLoot.Count > 0)
+        {
+            WeaponDrop weapon = nearbyLoot[0].GetComponent<WeaponDrop>();
+            if(weapon != null && equipWeaponChannel != null)
+            {
+                equipWeaponChannel.RaiseEvent(weapon.getWeapon());
+            }
+
+            GameObject objectReference = nearbyLoot[0];
+            RemoveLoot(nearbyLoot[0]);
+            Destroy(objectReference);
+        }
+    }
+
+    public bool CanLoot()
+    {
+        return (nearbyLoot.Count > 0);
+    }
+
     /// <summary>
     /// Compares the distance between objects and player.
     /// </summary>
@@ -29,6 +55,8 @@ public class LootManager : MonoBehaviourSingleton<LootManager>
     private void SortObjectsByDistance()
     {
         nearbyLoot.Sort(CompareDistance);
+        if(setTextChannel != null)
+            setTextChannel.RaiseEvent(nearbyLoot[0].GetComponent<WeaponDrop>().getWeapon().name);
     }
 
     /// <summary>
@@ -38,6 +66,10 @@ public class LootManager : MonoBehaviourSingleton<LootManager>
     public void AddLoot(GameObject obj)
     {
         nearbyLoot.Add(obj);
+        if(togglePromptChannel != null)
+            togglePromptChannel.RaiseEvent(true);
+        if(setTextChannel != null)
+            setTextChannel.RaiseEvent(nearbyLoot[0].GetComponent<WeaponDrop>().getWeapon().name);
     }
 
     /// <summary>
@@ -48,10 +80,13 @@ public class LootManager : MonoBehaviourSingleton<LootManager>
     {
         if(nearbyLoot.Contains(obj))
             nearbyLoot.Remove(obj);
+        if (togglePromptChannel != null && nearbyLoot.Count == 0)
+            togglePromptChannel.RaiseEvent(false);
     }
 
     private void Update()
     {
+        // expensive
         if (nearbyLoot.Count > 1)
             SortObjectsByDistance();
     }

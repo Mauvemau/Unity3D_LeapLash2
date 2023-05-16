@@ -6,8 +6,17 @@ public class PlayerInputController : MonoBehaviour
     [Header("Event Broadcasters")]
     [SerializeField] private Vector3EventChannel movementChannel;
     [SerializeField] private Vector2EventChannel attackChannel;
+    [SerializeField] private VoidEventChannel interactChannel;
 
     private GameInputActions input;
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        if(interactChannel != null)
+        {
+            interactChannel.RaiseEvent();
+        }
+    }
 
     private void OnMove()
     {
@@ -23,7 +32,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnAttack()
     {
-        if (input.Player.Attack.IsPressed())
+        if (attackChannel != null && input.Player.Attack.IsPressed())
         {
             Vector2 direction = input.Player.Attack.ReadValue<Vector2>();
 
@@ -40,10 +49,12 @@ public class PlayerInputController : MonoBehaviour
     private void OnEnable()
     {
         input.Player.Enable();
+        input.Player.Interact.performed += OnInteract;
     }
     private void OnDisable()
     {
         input.Player.Disable();
+        input.Player.Interact.performed -= OnInteract;
     }
 
     private void Awake()

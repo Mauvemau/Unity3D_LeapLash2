@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     /// <param name="lifeTime"> Bullet will de-activate after this amount of time in seconds </param>
     /// <returns></returns>
-    IEnumerator HandleLifeTime(float lifeTime)
+    private IEnumerator HandleLifeTime(float lifeTime)
     {
         yield return new WaitForSeconds(lifeTime);
         gameObject.SetActive(false);

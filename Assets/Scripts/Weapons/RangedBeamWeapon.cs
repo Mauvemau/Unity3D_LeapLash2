@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Weapons/Beam Weapon")]
 public class RangedBeamWeapon : RangedWeapon
 {
     /// <summary>
@@ -27,30 +28,23 @@ public class RangedBeamWeapon : RangedWeapon
     {
         if (shootBeamChannel)
         {
-            // Allow attack respecting the attack rate
-            if (nextAttack < Time.fixedTime)
+            // For each beam per shot we do the following:
+            for (int i = 0; i < projectilesPerShot; i++)
             {
-                // We redefine when the next attack will be available
-                nextAttack = Time.fixedTime + attackRate;
+                // We request the pool to activate a beam
+                PoolManager.Instance.CreateObject(poolToRequest, origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
 
-                // For each beam per shot we do the following:
-                for (int i = 0; i < projectilesPerShot; i++)
-                {
-                    // We request the pool to activate a beam
-                    PoolManager.Instance.CreateObject(poolToRequest, origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
+                // We take aim
+                Vector3 direction = GetProjectileDirection(target);
 
-                    // We take aim
-                    Vector3 direction = GetProjectileDirection(target);
+                // We create a beam setting to send
+                BeamContainer beamSettings = ScriptableObject.CreateInstance<BeamContainer>();
+                beamSettings.direction = direction;
+                beamSettings.damage = damage;
+                beamSettings.lifeTime = lifetime;
+                beamSettings.range = range;
 
-                    // We create a beam setting to send
-                    BeamContainer beamSettings = ScriptableObject.CreateInstance<BeamContainer>();
-                    beamSettings.direction = direction;
-                    beamSettings.damage = damage;
-                    beamSettings.lifeTime = lifetime;
-                    beamSettings.range = range;
-
-                    shootBeamChannel.RaiseEvent(beamSettings);
-                }
+                shootBeamChannel.RaiseEvent(beamSettings);
             }
         }
         else

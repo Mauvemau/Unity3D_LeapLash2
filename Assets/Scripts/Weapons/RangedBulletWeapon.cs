@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Weapons/Bullet Weapon")]
 public class RangedBulletWeapon : RangedWeapon
 {
     /// <summary>
@@ -27,31 +28,24 @@ public class RangedBulletWeapon : RangedWeapon
     {
         if (shootBulletChannel)
         {
-            // Allow attack respecting the attack rate
-            if (nextAttack < Time.fixedTime)
+            // For each bullet per shot we do the following:
+            for (int i = 0; i < projectilesPerShot; i++)
             {
-                // We redefine when the next attack will be available
-                nextAttack = Time.fixedTime + attackRate;
+                // We request the pool to activate a bullet
+                PoolManager.Instance.CreateObject(poolToRequest, origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
 
-                // For each bullet per shot we do the following:
-                for (int i = 0; i < projectilesPerShot; i++)
-                {
-                    // We request the pool to activate a bullet
-                    PoolManager.Instance.CreateObject(poolToRequest, origin, Vector3.zero, new Vector3(.25f, .25f, .25f));
+                // We take aim
+                Vector3 direction = GetProjectileDirection(target);
 
-                    // We take aim
-                    Vector3 direction = GetProjectileDirection(target);
+                // We create a bullet setting to send
+                BulletContainer bulletSettings = ScriptableObject.CreateInstance<BulletContainer>();
+                bulletSettings.direction = direction;
+                bulletSettings.damage = damage;
+                bulletSettings.lifeTime = lifetime;
+                bulletSettings.speed = bulletSpeed;
 
-                    // We create a bullet setting to send
-                    BulletContainer bulletSettings = ScriptableObject.CreateInstance<BulletContainer>();
-                    bulletSettings.direction = direction;
-                    bulletSettings.damage = damage;
-                    bulletSettings.lifeTime = lifetime;
-                    bulletSettings.speed = bulletSpeed;
-
-                    // We shoot
-                    shootBulletChannel.RaiseEvent(bulletSettings);
-                }
+                // We shoot
+                shootBulletChannel.RaiseEvent(bulletSettings);
             }
         }
         else
