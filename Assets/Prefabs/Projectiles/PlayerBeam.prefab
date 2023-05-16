@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6030656143227705288}
   - component: {fileID: 793486578012482152}
   - component: {fileID: 3126015251326894915}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootBulletChannel: {fileID: 11400000, guid: 1eab43dedc0a08341b923ea8348dee9f, type: 2}
   beamLine: {fileID: 793486578012482152}
+  damage: 0
