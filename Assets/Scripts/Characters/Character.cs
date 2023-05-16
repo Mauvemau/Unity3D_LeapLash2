@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, IDamageable
 {
-    protected Rigidbody rb;
-    protected CapsuleCollider coll;
-
     [Header("Stats")]
     [SerializeField] protected float maxHealthPoints;
-    protected float healthPoints;
+
+    [Header("Debug")]
+    [SerializeField] protected float healthPoints;
+    [SerializeField] protected Rigidbody rb;
+    [SerializeField] protected CapsuleCollider coll;
 
     /// <summary>
     /// Returns if dead or not.
@@ -93,5 +94,25 @@ public class Character : MonoBehaviour, IDamageable
         rb ??= GetComponent<Rigidbody>();
         coll ??= GetComponent<CapsuleCollider>();
         _OnValidate();
+    }
+
+    /// <summary>
+    /// For use in children classes.
+    /// </summary>
+    protected virtual void _OnEnable() {}
+
+    private void OnEnable()
+    {
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.detectCollisions = true;
+        }
+        if (coll != null)
+        {
+            coll.enabled = true;
+        }
+        healthPoints = maxHealthPoints;
+        _OnEnable();
     }
 }

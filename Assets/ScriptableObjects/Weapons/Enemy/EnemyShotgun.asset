@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca27d2e2c08e3864ea7aa1d4f57d9f56, type: 3}
+  m_Name: EnemyShotgun
+  m_EditorClassIdentifier: 
+  weaponName: Enemy Shotgun
+  damage: 5
+  attackRate: 0.4
+  poolToRequest: EnemyBullets
+  projectilesPerShot: 5
+  spreadAngle: 30
+  lifetime: 0.75
+  bulletSpeed: 7.5
+  shootBulletChannel: {fileID: 11400000, guid: 8374066f8c2b8c04d81f168e4d5d4792, type: 2}

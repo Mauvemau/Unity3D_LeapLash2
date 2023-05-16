@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
     /// <summary>
     /// Locks or Unlocks all doors
     /// </summary>
-    /// <param name="value"></param>
+    /// <param name="value"> Lock/Unlock </param>
     public void SetDoorsLocked(bool value)
     {
         if(lockDoorsChannel)

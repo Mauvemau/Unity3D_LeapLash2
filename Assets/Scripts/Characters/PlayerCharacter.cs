@@ -77,7 +77,7 @@ public class PlayerCharacter : Character
         }
     }
 
-    private void OnEnable()
+    protected override void _OnEnable()
     {
         if (movementChannel != null)
             movementChannel.OnEventRaised += OnMove;
@@ -89,7 +89,7 @@ public class PlayerCharacter : Character
             equipWeaponChannel.OnEventRaised += EquipWeapon;
     }
 
-    private void OnDisable()
+    private void _OnDisable()
     {
         if (movementChannel != null)
             movementChannel.OnEventRaised -= OnMove;

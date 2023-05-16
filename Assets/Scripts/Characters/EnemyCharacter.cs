@@ -22,6 +22,7 @@ public class EnemyCharacter : Character
 
     [Header("Movement")]
     [SerializeField] MovementTypes movementType;
+    private MovementTypes aux;
 
     [Header("Follow Movement Settings")]
     [SerializeField] private float speed;
@@ -31,9 +32,30 @@ public class EnemyCharacter : Character
     [SerializeField] private float leapInterval;
     [SerializeField] private float nextLeap = 0;
 
+    [Header("Misc")]
+    [SerializeField] private float corpseDisappearDelay;
+
+    // Attacking
+    private bool canAttack = true;
+
+    private IEnumerator HandleAttackRate()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(equippedWeapon.GetAttackRate());
+        canAttack = true;
+    }
+    //
+
+    private IEnumerator HandleCorpseCleaning()
+    {
+        yield return new WaitForSeconds(corpseDisappearDelay);
+        gameObject.SetActive(false);
+    }
+
     protected override void HandleDeathEffect()
     {
         movementType = MovementTypes.stationary; // We don't want it to keep moving
+        StartCoroutine(HandleCorpseCleaning());
     }
 
     /// <summary>
@@ -41,9 +63,13 @@ public class EnemyCharacter : Character
     /// </summary>
     private void AttackTarget()
     {
-        Vector3 attackDirection = target.position - transform.position;
-        attackDirection.y = 0;
-        equippedWeapon.Attack(transform.position, attackDirection);
+        if (canAttack)
+        {
+            StartCoroutine(HandleAttackRate());
+            Vector3 attackDirection = target.position - transform.position;
+            attackDirection.y = 0;
+            equippedWeapon.Attack(transform.position, attackDirection);
+        }
     }
 
     /// <summary>
@@ -81,13 +107,13 @@ public class EnemyCharacter : Character
 
     private void FixedUpdate()
     {
-        if (rb && movementType == MovementTypes.followPlayer)
+        if (rb != null && movementType == MovementTypes.followPlayer)
             HandleFollowMovement();
     }
 
     private void Update()
     {
-        if (rb && movementType == MovementTypes.leaping)
+        if (rb != null && movementType == MovementTypes.leaping)
             HandleLeapingMovement();
 
         if (!IsDead() && equippedWeapon)
@@ -97,5 +123,14 @@ public class EnemyCharacter : Character
     protected override void _Awake()
     {
         target = MyGameManager.Instance.getPlayerTransform();
+        aux = movementType;
+    }
+
+    protected override void _OnEnable()
+    {
+        target = MyGameManager.Instance.getPlayerTransform();
+        nextLeap = 0;
+        canAttack = true;
+        movementType = aux;
     }
 }

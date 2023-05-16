@@ -169,6 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 12
+  enemySpawnRate: 3
   doors:
   - {fileID: 491313125}
   - {fileID: 441878465}
@@ -334,6 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 0
+  enemySpawnRate: 0
   doors:
   - {fileID: 176809782}
   - {fileID: 648584307}
@@ -1141,6 +1145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 12
+  enemySpawnRate: 3
   doors:
   - {fileID: 1106968900}
   - {fileID: 1866334216}
@@ -1190,6 +1196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 0
+  enemySpawnRate: 0
   doors:
   - {fileID: 901706565}
   - {fileID: 241412039}
@@ -1356,7 +1364,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &520294526
 GameObject:
@@ -1519,6 +1527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 12
+  enemySpawnRate: 3
   doors:
   - {fileID: 1697667117}
   - {fileID: 765976173}
@@ -1760,7 +1770,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &715172770
 GameObject:
@@ -2786,6 +2796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 0
+  enemySpawnRate: 0
   doors:
   - {fileID: 2047825482}
   - {fileID: 1765912861}
@@ -2872,7 +2884,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 61.078, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -3641,7 +3653,7 @@ RectTransform:
   m_Children:
   - {fileID: 371822871}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3705,7 +3717,7 @@ Transform:
   - {fileID: 221559147}
   - {fileID: 2100649781}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1341138732
 GameObject:
@@ -3865,7 +3877,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373194238
 GameObject:
@@ -3912,6 +3924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 0
+  enemySpawnRate: 0
   doors:
   - {fileID: 1085721947}
 --- !u!1 &1435217528
@@ -4226,7 +4240,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1473927730
 MonoBehaviour:
@@ -4327,142 +4341,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1500975027
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1500975032}
-  - component: {fileID: 1500975033}
-  - component: {fileID: 1500975031}
-  - component: {fileID: 1500975030}
-  - component: {fileID: 1500975034}
-  - component: {fileID: 1500975028}
-  m_Layer: 9
-  m_Name: Enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!54 &1500975028
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500975027}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!23 &1500975030
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500975027}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: c620a126556d9b844b92c6f7e725e406, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1500975031
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500975027}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1500975032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500975027}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1500975033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500975027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5601cad0f38066b42a6c4647f1486d4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealthPoints: 100
-  target: {fileID: 0}
-  equippedWeapon: {fileID: 0}
-  movementType: 2
-  speed: 5
-  leapImpulse: 5
-  leapInterval: 0.5
-  nextLeap: 0
---- !u!136 &1500975034
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500975027}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1515398914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4509,7 +4387,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1515398918
 MonoBehaviour:
@@ -4636,6 +4514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 0
+  enemySpawnRate: 0
   doors:
   - {fileID: 1178684950}
   - {fileID: 841609946}
@@ -4687,6 +4567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 0
+  enemySpawnRate: 0
   doors:
   - {fileID: 1442555429}
   - {fileID: 1769361185}
@@ -4886,6 +4768,26 @@ MonoBehaviour:
     poolSize: 100
     expansible: 0
     pool: []
+  - name: TurretEnemies
+    objectToPool: {fileID: 3502387054963389907, guid: 290b88d093947b14f9a44145e7b8708a, type: 3}
+    poolSize: 10
+    expansible: 1
+    pool: []
+  - name: GunEnemies
+    objectToPool: {fileID: 4657569275894622939, guid: 344ad401c7708114b9d8bb2e6565757c, type: 3}
+    poolSize: 10
+    expansible: 1
+    pool: []
+  - name: FollowingEnemies
+    objectToPool: {fileID: 2080192744655021631, guid: a554d232bc799b84a92e400ae7ee1c69, type: 3}
+    poolSize: 10
+    expansible: 1
+    pool: []
+  - name: ShotgunEnemies
+    objectToPool: {fileID: 6504302655940037650, guid: 1c0a382301b22ac4e864c244f0cd90fc, type: 3}
+    poolSize: 10
+    expansible: 1
+    pool: []
 --- !u!4 &1743085943
 Transform:
   m_ObjectHideFlags: 0
@@ -4899,7 +4801,62 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1751004179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1751004181}
+  - component: {fileID: 1751004180}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1751004180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751004179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2c366acfb8f3940a215bc938ce24e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrintTrace: 0
+  startDelay: 3
+  spawnPools:
+  - TurretEnemies
+  - GunEnemies
+  - FollowingEnemies
+  - ShotgunEnemies
+  spawnPoints: []
+  spawnRate: 0
+  amountToSpawn: 0
+  amountSpawned: 0
+--- !u!4 &1751004181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751004179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1751985123
 PrefabInstance:
@@ -4910,7 +4867,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d0837bc7b9d7edd45be60b4641a1cb1d, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d0837bc7b9d7edd45be60b4641a1cb1d, type: 3}
       propertyPath: m_LocalScale.x
@@ -5262,6 +5219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 12
+  enemySpawnRate: 3
   doors:
   - {fileID: 1019124781}
   - {fileID: 520294531}
@@ -5459,6 +5418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 0
+  enemySpawnRate: 0
   doors:
   - {fileID: 2127506145}
   - {fileID: 850578274}
@@ -5509,6 +5470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50525b397a254954a9b135db08fb7e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountEnemySpawns: 0
+  enemySpawnRate: 0
   doors:
   - {fileID: 77711841}
   - {fileID: 1205829081}
@@ -5542,7 +5505,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1929224018
 MonoBehaviour:
@@ -5594,7 +5557,7 @@ Transform:
   - {fileID: 1975532413}
   - {fileID: 2089964697}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974995014
 GameObject:

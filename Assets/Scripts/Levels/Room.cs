@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] private int amountEnemySpawns;
+    [SerializeField] private float enemySpawnRate;
+
     [Header("Debug")]
     [SerializeField] private List<Door> doors;
 
@@ -21,6 +25,8 @@ public class Room : MonoBehaviour
             Debug.Log("Initializing room...");
             MyGameManager.Instance.TeleportPlayer(doors[Random.Range(0, doors.Count - 1)].GetOffsetPosition());
             LevelManager.Instance.SetDoorsLocked(true);
+            SpawnManager.Instance.SetUpSpawnPoints(gameObject);
+            SpawnManager.Instance.StartSpawning(amountEnemySpawns, enemySpawnRate);
         }
     }
 
