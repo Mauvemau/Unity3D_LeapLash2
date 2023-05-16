@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour, IDamageable
 {
     protected Rigidbody rb;
-    protected SphereCollider coll;
+    protected CapsuleCollider coll;
 
     [Header("Stats")]
     [SerializeField] protected float maxHealthPoints;
@@ -68,7 +68,7 @@ public class Character : MonoBehaviour, IDamageable
         {
             Debug.LogError($"{name}: {nameof(rb)} is null!");
         }
-        if (!GetComponent<SphereCollider>())
+        if (!GetComponent<CapsuleCollider>())
         {
             Debug.LogError($"{name}: {nameof(coll)} is null!");
         }
@@ -91,7 +91,7 @@ public class Character : MonoBehaviour, IDamageable
     private void OnValidate()
     {
         rb ??= GetComponent<Rigidbody>();
-        coll ??= GetComponent<SphereCollider>();
+        coll ??= GetComponent<CapsuleCollider>();
         _OnValidate();
     }
 }
