@@ -8,6 +8,16 @@ public class MySceneManager : MonoBehaviourSingleton<MySceneManager>
 {
     [Header("Event Listeners")]
     [SerializeField] private StringEventChannel loadSceneChannel;
+    [SerializeField] private VoidEventChannel closeGameChannel;
+
+    private void CloseGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 
     private void LoadScene(string sceneName)
     {
@@ -22,10 +32,12 @@ public class MySceneManager : MonoBehaviourSingleton<MySceneManager>
     private void OnEnable()
     {
         loadSceneChannel.OnEventRaised += LoadScene;
+        closeGameChannel.OnEventRaised += CloseGame;
     }
 
     private void OnDisable()
     {
         loadSceneChannel.OnEventRaised -= LoadScene;
+        closeGameChannel.OnEventRaised -= CloseGame;
     }
 }

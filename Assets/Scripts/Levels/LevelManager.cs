@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
     [Header("Event Broadcasters")]
     [SerializeField] private BoolEventChannel lockDoorsChannel;
     [SerializeField] private BoolEventChannel toggleFinishScreenChannel;
+    [SerializeField] private BoolEventChannel toggleTutorialChannel;
 
     /// <summary>
     /// Called to abort execution, for example when changing scenes.
@@ -41,6 +42,10 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
         if(currentRoom < amountRooms)
         {
             levels[currentLevel].AdvanceRoom();
+            if(currentRoom == 0)
+            {
+                toggleTutorialChannel.RaiseEvent(false);
+            }
         }
         else
         {
