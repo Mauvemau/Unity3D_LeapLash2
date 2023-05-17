@@ -51,7 +51,7 @@ MonoBehaviour:
   healthPoints: 0
   rb: {fileID: 7700147603110873165}
   coll: {fileID: 7700147603110873160}
-  equippedWeapon: {fileID: 11400000, guid: 24ce41822f9fddb4f9da5f4b7ea4d2c8, type: 2}
+  equippedWeapon: {fileID: 0}
   movementChannel: {fileID: 11400000, guid: c7ce5ee6ff015f942945e7d12ae7ba21, type: 2}
   attackChannel: {fileID: 11400000, guid: a4028a4b47b4bd64eb7498f86f1330d0, type: 2}
   interactChannel: {fileID: 11400000, guid: e4610bf39ae3c284b8d91b2fe400d8a5, type: 2}

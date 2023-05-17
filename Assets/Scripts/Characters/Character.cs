@@ -63,7 +63,6 @@ public class Character : MonoBehaviour, IDamageable
             {
                 healthPoints = maxHealthPoints;
             }
-            Debug.Log($"{name} took {damageToTake} damage! [Health Points: {healthPoints}/{maxHealthPoints}]");
         }
         UpdateHealthbar();
     }

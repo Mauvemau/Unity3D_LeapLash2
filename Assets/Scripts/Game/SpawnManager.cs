@@ -122,7 +122,7 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
             }
         }
 
-        if(GetSpawningFinished() && MyGameManager.Instance.GetActivePlayersCount() == 0)
+        if(GetSpawningFinished() && MyGameManager.Instance.GetActiveEnemiesCount() == 0)
         {
             UnlockRoom();
         }

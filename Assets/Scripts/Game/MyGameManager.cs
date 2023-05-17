@@ -36,7 +36,7 @@ public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
         player.Teleport(position);
     }
 
-    public int GetActivePlayersCount()
+    public int GetActiveEnemiesCount()
     {
         return FindObjectsOfType<EnemyCharacter>().Length;
     }

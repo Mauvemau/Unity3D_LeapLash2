@@ -7,6 +7,7 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] private Vector3EventChannel movementChannel;
     [SerializeField] private Vector2EventChannel attackChannel;
     [SerializeField] private VoidEventChannel interactChannel;
+    [SerializeField] private BoolEventChannel togglePauseMenuChannel;
 
     private GameInputActions input;
 
@@ -40,6 +41,11 @@ public class PlayerInputController : MonoBehaviour
         }
     }
 
+    private void OnPauseGame(InputAction.CallbackContext context)
+    {
+        togglePauseMenuChannel.RaiseEvent(true);
+    }
+
     private void Update()
     {
         OnMove();
@@ -50,11 +56,13 @@ public class PlayerInputController : MonoBehaviour
     {
         input.Player.Enable();
         input.Player.Interact.performed += OnInteract;
+        input.Player.PauseGame.performed += OnPauseGame;
     }
     private void OnDisable()
     {
         input.Player.Disable();
         input.Player.Interact.performed -= OnInteract;
+        input.Player.PauseGame.performed -= OnPauseGame;
     }
 
     private void Awake()

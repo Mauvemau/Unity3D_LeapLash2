@@ -58,7 +58,7 @@ MonoBehaviour:
   leapImpulse: 5
   leapInterval: 0.5
   nextLeap: 0
-  corpseDisappearDelay: 2
+  corpseDisappearDelay: 0.5
 --- !u!136 &4657569275894622933
 CapsuleCollider:
   m_ObjectHideFlags: 0

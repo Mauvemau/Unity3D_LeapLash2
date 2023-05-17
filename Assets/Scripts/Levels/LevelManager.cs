@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
 
     [Header("Event Broadcasters")]
     [SerializeField] private BoolEventChannel lockDoorsChannel;
+    [SerializeField] private BoolEventChannel toggleFinishScreenChannel;
 
     /// <summary>
     /// Called to abort execution, for example when changing scenes.
@@ -46,7 +47,7 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
             currentLevel++;
             if (currentLevel > levels.Count - 1)
             {
-                Debug.LogError($"{name}: There is no next Level!");
+                toggleFinishScreenChannel.RaiseEvent(true);
             }
             else
             {

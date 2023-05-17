@@ -37,7 +37,6 @@ public class MySceneManager : MonoBehaviourSingleton<MySceneManager>
             SpawnManager.Instance.Reset();
         }
         SceneManager.LoadScene(sceneName);
-        Lightmapping.BakeAsync();
     }
 
     private void OnEnable()
