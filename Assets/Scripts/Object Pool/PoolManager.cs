@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PoolManager : MonoBehaviourSingleton<PoolManager>
 {
@@ -169,13 +170,26 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
         return root;
     }
 
-    protected override void SingletonAwakened()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        root = new GameObject("Pooled Objects");
-
-        for (int i = 0; i < poolManager.Length; i++)
+        if (scene.name == "Game")
         {
-            poolManager[i].Initialize();
+            root = new GameObject("Pooled Objects");
+
+            for (int i = 0; i < poolManager.Length; i++)
+            {
+                poolManager[i].Initialize();
+            }
         }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviourSingleton<LevelManager>
 {
@@ -10,6 +11,15 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
 
     [Header("Event Broadcasters")]
     [SerializeField] private BoolEventChannel lockDoorsChannel;
+
+    /// <summary>
+    /// Called to abort execution, for example when changing scenes.
+    /// </summary>
+    public void Reset()
+    {
+        levels.Clear();
+        currentLevel = 0;
+    }
 
     /// <summary>
     /// Locks or Unlocks all doors
@@ -45,27 +55,7 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
         }
     }
 
-    /// <summary>
-    /// Initializes the first level of the game.
-    /// </summary>
-    private void Initialize()
-    {
-        currentLevel = 0;
-    }
-
-    protected override void SingletonAwakened()
-    {
-        if (levels.Count < 1)
-        {
-            Debug.LogWarning($"{name}: There is no levels in the scene!");
-        }
-        else
-        {
-            Initialize();
-        }
-    }
-
-    private void OnValidate()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // The developer can choose the sorting of levels in the unity editor, the level at the top will be the first, and so on.
         // So the sorting doesn't get messed up on validate, we do the following;
@@ -78,5 +68,18 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
                 levels.Add(level);
             }
         }
+
+        currentLevel = 0;
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
 }

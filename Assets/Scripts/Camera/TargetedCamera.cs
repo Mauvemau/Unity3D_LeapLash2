@@ -54,7 +54,7 @@ public class TargetedCamera : MonoBehaviour
             transform.position = smoothedFollow;
         }
     }
-    private void Awake()
+    private void Start()
     {
         target = MyGameManager.Instance.getPlayerTransform();
         if (target != null)

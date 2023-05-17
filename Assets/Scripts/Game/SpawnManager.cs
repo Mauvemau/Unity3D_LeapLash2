@@ -23,7 +23,29 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
     /// <summary>
     /// Complementary to spawnrate, defines when it can spawn
     /// </summary>
-    private bool canSpawn = true;
+    private bool canSpawn;
+
+    /// <summary>
+    /// Called to abort execution, for example when changing scenes.
+    /// </summary>
+    private bool aborted = false;
+    public void Reset()
+    {
+        amountSpawned = 0;
+        canSpawn = false;
+        aborted = true;
+    }
+
+    private void UnlockRoom()
+    {
+        amountSpawned = 0;
+        LevelManager.Instance.SetDoorsLocked(false);
+    }
+
+    private bool GetSpawningFinished()
+    {
+        return (amountSpawned == amountToSpawn);
+    }
 
     private IEnumerator HandleSpawnRate()
     {
@@ -35,6 +57,7 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
     private IEnumerator HandleStartDelay()
     {
         yield return new WaitForSeconds(startDelay);
+        aborted = false;
         canSpawn = true;
     }
 
@@ -74,7 +97,7 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
 
     private void SpawnEnemy()
     {
-        if (spawnPools.Count > 0 && spawnPoints.Length > 0)
+        if (spawnPools.Count > 0 && spawnPoints.Length > 0 && !aborted)
         {
             PoolManager.Instance.CreateObject(
                 spawnPools[Random.Range(0, spawnPools.Count)],
@@ -96,9 +119,12 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
             else
             {
                 canSpawn = false;
-                amountSpawned = 0;
-                LevelManager.Instance.SetDoorsLocked(false);
             }
+        }
+
+        if(GetSpawningFinished() && MyGameManager.Instance.GetActivePlayersCount() == 0)
+        {
+            UnlockRoom();
         }
     }
 }

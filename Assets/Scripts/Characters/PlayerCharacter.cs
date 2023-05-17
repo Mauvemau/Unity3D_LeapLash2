@@ -13,9 +13,16 @@ public class PlayerCharacter : Character
     [SerializeField] private VoidEventChannel interactChannel;
     [SerializeField] private WeaponEventChannel equipWeaponChannel;
 
+    [Header("Event Broadcasters")]
+    [SerializeField] private FloatEventChannel updateHealthBarChannel;
+    [SerializeField] private BoolEventChannel toggleGameOverScreenChannel;
+
     [Header("Movement")]
     [SerializeField] protected float speed;
     protected Vector3 _currentMovement;
+
+    [Header("Debug")]
+    [SerializeField] private GameObject model;
 
     // Attacking
     private bool canAttack = true;
@@ -27,6 +34,16 @@ public class PlayerCharacter : Character
         canAttack = true;
     }
     //
+
+    protected override void HandleDeathEffect()
+    {
+        toggleGameOverScreenChannel.RaiseEvent(true);
+    }
+
+    protected override void UpdateHealthbar()
+    {
+        updateHealthBarChannel.RaiseEvent(healthPoints / maxHealthPoints);
+    }
 
     public void EquipWeapon(Weapon weapon)
     {
@@ -74,7 +91,16 @@ public class PlayerCharacter : Character
         if (!IsDead() && rb)
         {
             transform.Translate(speed * Time.deltaTime * _currentMovement);
+            if (model && _currentMovement.magnitude > 0)
+            {
+                model.transform.rotation = Quaternion.LookRotation(_currentMovement);
+            }
         }
+    }
+
+    protected override void _OnValidate()
+    {
+        model = transform.GetChild(0).gameObject;
     }
 
     protected override void _OnEnable()
@@ -89,7 +115,7 @@ public class PlayerCharacter : Character
             equipWeaponChannel.OnEventRaised += EquipWeapon;
     }
 
-    private void _OnDisable()
+    protected override void _OnDisable()
     {
         if (movementChannel != null)
             movementChannel.OnEventRaised -= OnMove;

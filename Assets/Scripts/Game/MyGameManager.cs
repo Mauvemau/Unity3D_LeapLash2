@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
 {
@@ -35,8 +36,24 @@ public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
         player.Teleport(position);
     }
 
-    private void OnValidate()
+    public int GetActivePlayersCount()
     {
-        player = FindObjectOfType<PlayerCharacter>();
+        return FindObjectsOfType<EnemyCharacter>().Length;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "Game")
+            player = FindObjectOfType<PlayerCharacter>();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

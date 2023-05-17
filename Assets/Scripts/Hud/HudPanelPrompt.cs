@@ -19,14 +19,27 @@ public class HudPanelPrompt : MonoBehaviour
     private void TogglePrompt(bool toggle)
     {
         Image panelImage = GetComponent<Image>();
-        TextMeshProUGUI[] children = GetComponentsInChildren<TextMeshProUGUI>(true);
+        TextMeshProUGUI[] texts = GetComponentsInChildren<TextMeshProUGUI>(true);
+        Button[] buttons = GetComponentsInChildren<Button>(true);
+        Image[] images = GetComponentsInChildren<Image>(true);
+
         // Disable the image of the main panel. (We're assuming the script is directly attached to the panel here.)
-        if(panelImage != null)
+        if (panelImage != null)
         {
             panelImage.enabled = toggle;
         }
-        // Now we disable all children, assuming the text and everything is inside the panel as children.
-        foreach(TextMeshProUGUI obj in children)
+        // Now we disable all children texts, assuming the text and everything is inside the panel as children.
+        foreach(TextMeshProUGUI obj in texts)
+        {
+            obj.enabled = toggle;
+        }
+        // Same for buttons.
+        foreach(Button obj in buttons)
+        {
+            obj.enabled = toggle;
+        }
+        // And images...
+        foreach (Image obj in images)
         {
             obj.enabled = toggle;
         }

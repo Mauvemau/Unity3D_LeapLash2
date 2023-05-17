@@ -7,7 +7,7 @@ public class WeaponSpawnManager : MonoBehaviour
     [Header("Weapon Spawns")]
     [SerializeField] private List<Weapon> weaponPool;
 
-    private void Awake()
+    private void Start()
     {
         if (weaponPool.Count > 0)
         {

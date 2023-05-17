@@ -24,7 +24,7 @@ public class Character : MonoBehaviour, IDamageable
     /// <summary>
     /// Used in case the developer wants to add extra functionality after death, like; Death animation, de-activation, playing death sound, etc
     /// </summary>
-    protected virtual void HandleDeathEffect() { }
+    protected virtual void HandleDeathEffect() {}
 
     /// <summary>
     /// Basic function performed on death
@@ -38,6 +38,11 @@ public class Character : MonoBehaviour, IDamageable
         coll.enabled = false;
         HandleDeathEffect();
     }
+
+    /// <summary>
+    /// Used for updating a health bar, if entity has one
+    /// </summary>
+    protected virtual void UpdateHealthbar() {}
 
     /// <summary>
     /// Override from IDamageable.
@@ -60,6 +65,7 @@ public class Character : MonoBehaviour, IDamageable
             }
             Debug.Log($"{name} took {damageToTake} damage! [Health Points: {healthPoints}/{maxHealthPoints}]");
         }
+        UpdateHealthbar();
     }
 
     /// <summary>
@@ -118,5 +124,12 @@ public class Character : MonoBehaviour, IDamageable
         }
         healthPoints = maxHealthPoints;
         _OnEnable();
+    }
+
+    protected virtual void _OnDisable() {}
+
+    private void OnDisable()
+    {
+        _OnDisable();
     }
 }
