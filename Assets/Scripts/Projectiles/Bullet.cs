@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float damage;
+    [SerializeField] private TrailRenderer tr;
 
     /// <summary>
     /// De-activates the bullet after a set time
@@ -59,7 +60,8 @@ public class Bullet : MonoBehaviour
 
     private void OnValidate()
     {
-        rb ??= GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        tr = GetComponent<TrailRenderer>();
     }
 
     private void Awake()
@@ -74,11 +76,21 @@ public class Bullet : MonoBehaviour
     {
         if (shootBulletChannel != null)
             shootBulletChannel.OnEventRaised += OnShot;
+        if(tr != null)
+        {
+            tr.Clear();
+            tr.emitting = true;
+        }
     }
 
     private void OnDisable()
     {
         if (shootBulletChannel != null)
             shootBulletChannel.OnEventRaised -= OnShot;
+        if (tr != null)
+        {
+            tr.Clear();
+            tr.emitting = false;
+        }
     }
 }

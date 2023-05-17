@@ -54,6 +54,10 @@ public class Character : MonoBehaviour, IDamageable
                 healthPoints = 0;
                 HandleDeath();
             }
+            if(healthPoints > maxHealthPoints)
+            {
+                healthPoints = maxHealthPoints;
+            }
             Debug.Log($"{name} took {damageToTake} damage! [Health Points: {healthPoints}/{maxHealthPoints}]");
         }
     }
@@ -91,8 +95,8 @@ public class Character : MonoBehaviour, IDamageable
 
     private void OnValidate()
     {
-        rb ??= GetComponent<Rigidbody>();
-        coll ??= GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
+        coll = GetComponent<CapsuleCollider>();
         _OnValidate();
     }
 

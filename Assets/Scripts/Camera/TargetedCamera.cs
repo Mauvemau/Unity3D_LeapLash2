@@ -26,19 +26,6 @@ public class TargetedCamera : MonoBehaviour
     private Vector3 offset;
     private Vector3 cameraPos;
 
-    private void OnValidate()
-    {
-        if (target)
-        {
-            offset = transform.position - target.position;
-        }
-    }
-
-    private void Awake()
-    {
-        transform.LookAt(target);
-    }
-
     private void LateUpdate()
     {
         if(target && smoothSpeed == 1.0f)
@@ -65,6 +52,14 @@ public class TargetedCamera : MonoBehaviour
             }
             Vector3 smoothedFollow = Vector3.Lerp(transform.position, cameraPos, smoothSpeed);
             transform.position = smoothedFollow;
+        }
+    }
+    private void Awake()
+    {
+        target = MyGameManager.Instance.getPlayerTransform();
+        if (target != null)
+        {
+            offset = transform.position - target.position;
         }
     }
 }

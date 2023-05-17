@@ -77,7 +77,7 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
         if (spawnPools.Count > 0 && spawnPoints.Length > 0)
         {
             PoolManager.Instance.CreateObject(
-                spawnPools[Random.Range(0, spawnPools.Count - 1)],
+                spawnPools[Random.Range(0, spawnPools.Count)],
                 spawnPoints[Random.Range(0, spawnPoints.Length - 1)],
                 new Vector3(0f, 0f, 0f), new Vector3(1f, 1f, 1f));
         }
@@ -97,6 +97,7 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
             {
                 canSpawn = false;
                 amountSpawned = 0;
+                LevelManager.Instance.SetDoorsLocked(false);
             }
         }
     }

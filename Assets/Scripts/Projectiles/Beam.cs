@@ -12,6 +12,7 @@ public class Beam : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private LineRenderer beamLine;
     [SerializeField] private float damage;
+    [SerializeField] private LayerMask layermask;
 
     /// <summary>
     /// Handles the de-activation of the beam, mainly Line-Renderer related
@@ -50,7 +51,7 @@ public class Beam : MonoBehaviour
             beamLine.SetPosition(0, transform.position);
             RaycastHit hit;
 
-            if(Physics.Raycast(transform.position, settings.direction, out hit, settings.range))
+            if(Physics.Raycast(transform.position, settings.direction, out hit, settings.range, layermask))
             {
                 beamLine.SetPosition(1, hit.point);
                 HandleBeamHit(hit.collider);
@@ -69,7 +70,7 @@ public class Beam : MonoBehaviour
 
     private void OnValidate()
     {
-        beamLine ??= GetComponent<LineRenderer>();
+        beamLine = GetComponent<LineRenderer>();
     }
 
     private void Awake()

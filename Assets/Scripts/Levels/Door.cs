@@ -68,7 +68,7 @@ public class Door : MonoBehaviour
 
     private void OnValidate()
     {
-        coll ??= GetComponent<BoxCollider>();
+        coll = GetComponent<BoxCollider>();
 
         switch (doorType)
         {

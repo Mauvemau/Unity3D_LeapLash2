@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca27d2e2c08e3864ea7aa1d4f57d9f56, type: 3}
-  m_Name: SMG
+  m_Script: {fileID: 11500000, guid: fa88d748cd5b49740b3d377127e2e487, type: 3}
+  m_Name: Laser Rifle
   m_EditorClassIdentifier: 
-  weaponName: Submachine Gun
-  damage: 7
+  weaponName: Laser Rifle
+  damage: 5
   attackRate: 0.1
-  poolToRequest: PlayerBullets
+  poolToRequest: PlayerBeams
   projectilesPerShot: 1
-  spreadAngle: 10
-  lifetime: 0.75
-  bulletSpeed: 15
-  shootBulletChannel: {fileID: 11400000, guid: 5507364f6aac937459a095fe53711178, type: 2}
+  spreadAngle: 3
+  lifetime: 0.05
+  range: 20
+  shootBeamChannel: {fileID: 11400000, guid: 1eab43dedc0a08341b923ea8348dee9f, type: 2}

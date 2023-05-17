@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa88d748cd5b49740b3d377127e2e487, type: 3}
+  m_Name: Laser Bomb
+  m_EditorClassIdentifier: 
+  weaponName: Laser Bomb
+  damage: 3
+  attackRate: 0.2
+  poolToRequest: PlayerBeams
+  projectilesPerShot: 40
+  spreadAngle: 180
+  lifetime: 0.1
+  range: 7.5
+  shootBeamChannel: {fileID: 11400000, guid: 1eab43dedc0a08341b923ea8348dee9f, type: 2}

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca27d2e2c08e3864ea7aa1d4f57d9f56, type: 3}
-  m_Name: SMG
+  m_Name: Machine Gun
   m_EditorClassIdentifier: 
-  weaponName: Submachine Gun
-  damage: 7
-  attackRate: 0.1
+  weaponName: Machine Gun
+  damage: 2
+  attackRate: 0.05
   poolToRequest: PlayerBullets
-  projectilesPerShot: 1
-  spreadAngle: 10
-  lifetime: 0.75
+  projectilesPerShot: 2
+  spreadAngle: 40
+  lifetime: 0.5
   bulletSpeed: 15
   shootBulletChannel: {fileID: 11400000, guid: 5507364f6aac937459a095fe53711178, type: 2}

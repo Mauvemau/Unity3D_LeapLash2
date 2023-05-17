@@ -53,6 +53,6 @@ public class WeaponDrop : MonoBehaviour
 
     private void OnValidate()
     {
-        coll ??= GetComponent<SphereCollider>();
+        coll = GetComponent<SphereCollider>();
     }
 }

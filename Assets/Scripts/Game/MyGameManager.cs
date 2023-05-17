@@ -7,6 +7,16 @@ public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
     [Header("Debug")]
     [SerializeField] private PlayerCharacter player;
 
+    public void HealPlayer(float amount)
+    {
+        player.TakeDamage(-amount);
+    }
+
+    public void HealPlayer()
+    {
+        player.TakeDamage(-999);
+    }
+
     /// <summary>
     /// Returns the current altitude of the player.
     /// </summary>
@@ -27,6 +37,6 @@ public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
 
     private void OnValidate()
     {
-        player ??= FindObjectOfType<PlayerCharacter>();
+        player = FindObjectOfType<PlayerCharacter>();
     }
 }

@@ -25,6 +25,7 @@ public class Room : MonoBehaviour
             Debug.Log("Initializing room...");
             MyGameManager.Instance.TeleportPlayer(doors[Random.Range(0, doors.Count - 1)].GetOffsetPosition());
             LevelManager.Instance.SetDoorsLocked(true);
+            MyGameManager.Instance.HealPlayer();
             SpawnManager.Instance.SetUpSpawnPoints(gameObject);
             SpawnManager.Instance.StartSpawning(amountEnemySpawns, enemySpawnRate);
         }
