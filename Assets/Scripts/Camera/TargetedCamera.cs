@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: Documentation - Add summary
 public class TargetedCamera : MonoBehaviour
 {
     [Header("Camera Target")]
     [SerializeField] private Transform target;
     [Header("Mouse Camera Input Settings")]
+    //TODO: Fix - Should be [TooltipAttribute]
     /// <summary>
     /// True if you want the mouse position to alter the camera, false if you don't.
     /// </summary>
@@ -28,6 +30,7 @@ public class TargetedCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        //TODO: TP2 - Strategy
         if(target && smoothSpeed == 1.0f)
         {
             cameraPos = target.position + offset;
@@ -42,6 +45,7 @@ public class TargetedCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //TODO: TP2 - Strategy
         if (target && smoothSpeed < 1.0f)
         {
             cameraPos = target.position + offset;

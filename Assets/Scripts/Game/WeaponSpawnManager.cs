@@ -9,11 +9,13 @@ public class WeaponSpawnManager : MonoBehaviour
 
     private void Start()
     {
+        //TODO: Fix - Unclear logic
         if (weaponPool.Count > 0)
         {
             int childCount = transform.childCount;
             Vector3[] spawnPoints = new Vector3[childCount];
 
+            //TODO: Fix - Unnecessary double iteration
             for (int i = 0; i < childCount; i++)
             {
                 spawnPoints[i] = transform.GetChild(i).position;

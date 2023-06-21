@@ -13,8 +13,10 @@ public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
         player.TakeDamage(-amount);
     }
 
+    //TODO: Fix - Unclear name
     public void HealPlayer()
     {
+        //TODO: OOP - Player Should have a method to fully heal
         player.TakeDamage(-999);
     }
 
@@ -38,6 +40,7 @@ public class MyGameManager : MonoBehaviourSingleton<MyGameManager>
 
     public int GetActiveEnemiesCount()
     {
+        //TODO: Fix - Too under-performant. List should be cached and be updated via events
         return FindObjectsOfType<EnemyCharacter>().Length;
     }
 

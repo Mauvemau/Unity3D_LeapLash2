@@ -29,6 +29,7 @@ public class Door : MonoBehaviour
     /// </summary>
     private void SetLocked(bool locked)
     {
+        //TODO: Fix - coll.isTrigger = !locked;
         if (locked)
         {
             coll.isTrigger = false;
@@ -59,6 +60,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //TODO: Fix - TryGetComponent
         PlayerCharacter player = other.GetComponent<PlayerCharacter>();
         if (player != null)
         {
@@ -70,6 +72,8 @@ public class Door : MonoBehaviour
     {
         coll = GetComponent<BoxCollider>();
 
+        //TODO: Fix - Values should be editable via inspector
+        //TODO: TP2 - Strategy
         switch (doorType)
         {
             case DoorTypes.top:

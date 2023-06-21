@@ -12,6 +12,7 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected CapsuleCollider coll;
 
+    //TODO: TP2 - Syntax - Fix declaration order
     /// <summary>
     /// Returns if dead or not.
     /// </summary>
@@ -24,6 +25,7 @@ public class Character : MonoBehaviour, IDamageable
     /// <summary>
     /// Used in case the developer wants to add extra functionality after death, like; Death animation, de-activation, playing death sound, etc
     /// </summary>
+    //TODO: Fix - Should be event based
     protected virtual void HandleDeathEffect() {}
 
     /// <summary>
@@ -42,6 +44,7 @@ public class Character : MonoBehaviour, IDamageable
     /// <summary>
     /// Used for updating a health bar, if entity has one
     /// </summary>
+    //TODO: Fix - Should be event based
     protected virtual void UpdateHealthbar() {}
 
     /// <summary>
@@ -50,10 +53,13 @@ public class Character : MonoBehaviour, IDamageable
     /// <param name="damageToTake"></param>
     public void TakeDamage(float damageToTake)
     {
+        //TODO: Fix - If MaxHP=0 is an error, it should just log it or clamp the value in OnValidate
+        //TODO: Fix - MaxHP=0 would just mean the character dies on the first hit, not infinite health
         // 0 = Infinite Health
         if(maxHealthPoints != 0)
         {
             healthPoints -= damageToTake;
+            //TODO: Fix - Repeated code - Use IsDead
             if(healthPoints <= 0)
             {
                 healthPoints = 0;
@@ -64,16 +70,19 @@ public class Character : MonoBehaviour, IDamageable
                 healthPoints = maxHealthPoints;
             }
         }
+        //TODO: TP2 - SOLID
         UpdateHealthbar();
     }
 
     /// <summary>
     /// For use in children classes
     /// </summary>
+    //TODO: OOP - Awake should just be virtual then
     protected virtual void _Awake() {}
 
     private void Awake()
     {
+        //TODO: Fix - TryGetComponent
         if (!GetComponent<Rigidbody>())
         {
             Debug.LogError($"{name}: {nameof(rb)} is null!");

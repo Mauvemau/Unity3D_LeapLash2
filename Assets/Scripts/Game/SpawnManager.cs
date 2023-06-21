@@ -42,6 +42,7 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
         LevelManager.Instance.SetDoorsLocked(false);
     }
 
+    //TODO: Fix - Unclear name
     private bool GetSpawningFinished()
     {
         return (amountSpawned == amountToSpawn);
@@ -54,6 +55,7 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
         canSpawn = true;
     }
 
+    //TODO: Fix - Trash code
     private IEnumerator HandleStartDelay()
     {
         yield return new WaitForSeconds(startDelay);
@@ -109,6 +111,7 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
 
     private void Update()
     {
+        //TODO: Fix - Could be a coroutine
         if (canSpawn)
         {
             if(amountSpawned < amountToSpawn)
@@ -122,8 +125,10 @@ public class SpawnManager : MonoBehaviourSingleton<SpawnManager>
             }
         }
 
+        //TODO: Fix - Should be event based
         if(GetSpawningFinished() && MyGameManager.Instance.GetActiveEnemiesCount() == 0)
         {
+            //TODO: TP2 - SOLID - Should be an event
             UnlockRoom();
         }
     }
