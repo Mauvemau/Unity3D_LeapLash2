@@ -8,8 +8,10 @@ public class MouseUtils : MonoBehaviour
     /// Returns the normalized position of the mouse relative to the window
     /// </summary>
     /// <returns></returns>
+    //TODO: Fix - Inconsistent modifier order
     static public Vector2 GetNormalizedMousePosition()
     {
+        //TODO: Fix - Old input system
         Vector2 mousePosition = Input.mousePosition;
         Vector2 windowPosition = new Vector2(Screen.width, Screen.height);
         Vector2 normalizedPosition = (mousePosition / windowPosition) * 2 - new Vector2(1, 1);

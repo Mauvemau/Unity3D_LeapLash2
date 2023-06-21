@@ -10,6 +10,7 @@ public class PoolManager : MonoBehaviourSingleton<PoolManager>
 
     private GameObject root;
 
+    //TODO: Syntax - Use #Region <Name> <your code> #EndRegion
     // Destroy
 
     /// <summary>

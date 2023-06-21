@@ -33,6 +33,7 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnAttack()
     {
+        //TODO: Fix - Receive as parameter
         if (attackChannel != null && input.Player.Attack.IsPressed())
         {
             Vector2 direction = input.Player.Attack.ReadValue<Vector2>();

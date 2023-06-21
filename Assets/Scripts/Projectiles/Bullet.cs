@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private TrailRenderer tr;
 
+    //TODO: Fix - Repeated code
     /// <summary>
     /// De-activates the bullet after a set time
     /// </summary>

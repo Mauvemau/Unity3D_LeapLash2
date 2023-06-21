@@ -9,11 +9,13 @@ public class WeaponDrop : MonoBehaviour
     [SerializeField] private Weapon weapon;
     [SerializeField] private SphereCollider coll;
 
+    //TODO: Fix - Should be native Setter/Getter
     public void SetWeapon(Weapon _weapon)
     {
         weapon = _weapon;
     }
 
+    //TODO: Fix - Should be native Setter/Getter
     /// <summary>
     /// Returns the weapon scriptableObject.
     /// </summary>

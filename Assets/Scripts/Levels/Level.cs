@@ -44,6 +44,7 @@ public class Level : MonoBehaviour
         }
         else
         {
+            //TODO: TP2 - Strategy
             if (levelProgressionType == LevelProgression.inOrder)
             {
                 rooms[currentRoom].Initialize();

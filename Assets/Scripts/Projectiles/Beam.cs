@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Beam : MonoBehaviour
 {
+    //TODO: TP2 - Remove unused methods/variables/classes
     protected float timeShot;
 
     [Header("Event Listeners")]
@@ -31,6 +32,7 @@ public class Beam : MonoBehaviour
     /// <param name="other"> Collider of the object the beam collided into </param>
     private void HandleBeamHit(Collider other)
     {
+        //TODO: Fix - TryGetComponent
         IDamageable damageable = other.GetComponent<IDamageable>();
 
         if (damageable != null)
@@ -70,6 +72,7 @@ public class Beam : MonoBehaviour
 
     private void OnValidate()
     {
+        //TODO: Fix - Add [RequireComponentAttribute]
         beamLine = GetComponent<LineRenderer>();
     }
 

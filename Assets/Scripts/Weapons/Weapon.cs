@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Weapon : ScriptableObject
 {
     [Header("Settings")]
+    //TODO: Fix - Should be tooltip.
     /// <summary>
     /// Name of the weapon
     /// </summary>
@@ -23,6 +24,7 @@ public abstract class Weapon : ScriptableObject
     [SerializeField]
     protected float attackRate;
 
+    //TODO: Fix - Should be native Setter/Getter
     public float GetAttackRate()
     {
         return attackRate;

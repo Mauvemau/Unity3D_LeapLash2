@@ -12,6 +12,7 @@ public class ObjectPool
     [SerializeField]
     private int poolSize;
     [SerializeField]
+    //TODO: Fix - Code is in Spanish
     private bool expansible;
 
     [SerializeField]

@@ -27,6 +27,7 @@ public class PlayerCharacter : Character
     // Attacking
     private bool canAttack = true;
 
+    //TODO: Fix - Repeated code
     private IEnumerator HandleAttackRate()
     {
         canAttack = false;

@@ -18,11 +18,14 @@ public class HudPanelPrompt : MonoBehaviour
     /// <param name="toggle"> Enabled/Disabled </param>
     private void TogglePrompt(bool toggle)
     {
+        //TODO: Fix - Cache value/s
+        //TODO: Fix - Add [RequireComponentAttribute]
         Image panelImage = GetComponent<Image>();
         TextMeshProUGUI[] texts = GetComponentsInChildren<TextMeshProUGUI>(true);
         Button[] buttons = GetComponentsInChildren<Button>(true);
         Image[] images = GetComponentsInChildren<Image>(true);
 
+        //TODO: Fix - Remove redundant comments
         // Disable the image of the main panel. (We're assuming the script is directly attached to the panel here.)
         if (panelImage != null)
         {

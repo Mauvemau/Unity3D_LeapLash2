@@ -21,6 +21,7 @@ public class EnemyCharacter : Character
     [SerializeField] private Weapon equippedWeapon;
 
     [Header("Movement")]
+    //TODO: TP2 - Syntax - Consistency in access modifiers (private/protected/public/etc)
     [SerializeField] MovementTypes movementType;
     private MovementTypes aux;
 
@@ -61,6 +62,7 @@ public class EnemyCharacter : Character
     /// <summary>
     /// Attacks towards the target with the equipped weapon.
     /// </summary>
+    //TODO: Fix - Could be a coroutine
     private void AttackTarget()
     {
         if (canAttack)
@@ -107,12 +109,14 @@ public class EnemyCharacter : Character
 
     private void FixedUpdate()
     {
+        //TODO: TP2 - Strategy
         if (rb != null && movementType == MovementTypes.followPlayer)
             HandleFollowMovement();
     }
 
     private void Update()
     {
+        //TODO: TP2 - Strategy
         if (rb != null && movementType == MovementTypes.leaping)
             HandleLeapingMovement();
 
@@ -123,14 +127,17 @@ public class EnemyCharacter : Character
     protected override void _Awake()
     {
         target = MyGameManager.Instance.getPlayerTransform();
+        //TODO: Fix - Unclear logic
         aux = movementType;
     }
 
     protected override void _OnEnable()
     {
+        //TODO: Fix - Repeated code
         target = MyGameManager.Instance.getPlayerTransform();
         nextLeap = 0;
         canAttack = true;
+        //TODO: Fix - Unclear logic
         movementType = aux;
     }
 }
